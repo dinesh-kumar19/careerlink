@@ -28,8 +28,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {"glob":"**/*", "input": "src/assets", "output": "./assets"}
+              "src/assets"
             ],
             "styles": [
               "node_modules/aos/dist/aos.css",
