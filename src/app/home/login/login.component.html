@@ -1,0 +1,469 @@
+<header>
+  <app-header></app-header>
+</header>
+
+<!-- login form with database -->
+<div class="content">
+  <div>
+    <div class="login_header">Welcome to your professional community</div>
+    <div class="container">
+      <form [formGroup]="loginForm">
+        <select formControlName="loginType">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+        <div class="mb-3">
+          <label for="loginemail" class="form-label mt-3"
+            >Email</label
+          >
+          <input
+            type="email"
+            class="form-control border border-dark p-3"
+            id="loginEmail"
+            formControlName="loginEmail_id"
+            placeholder="Enter Email ID"
+            required
+          />
+          <div
+            *ngIf="
+              loginForm.controls.loginEmail_id.invalid &&
+              (loginForm.controls.loginEmail_id.dirty ||
+                loginForm.controls.loginEmail_id.touched)
+            "
+          >
+            <small class="text-danger">Please enter a valid email.</small>
+          </div>
+        </div>
+        <div class="mb-1">
+          <label for="loginpassword" class="form-label mt-3">Password</label>
+          <input
+            type="password"
+            id="loginPassword"
+            class="form-control border border-dark p-3"
+            aria-describedby="passwordHelpBlock"
+            formControlName="login_Password"
+            placeholder="Enter Password"
+          />
+          <div
+            *ngIf="
+              loginForm.controls.login_Password.invalid &&
+              (loginForm.controls.login_Password.dirty ||
+                loginForm.controls.login_Password.touched)
+            "
+          >
+            <small class="text-danger"
+              >Password must be at least 6 characters long.</small
+            >
+          </div>
+        </div>
+      </form>
+
+      <button
+        type="button"
+        class="signin_button btn btn-primary mt-4"
+        [disabled]="loginForm.invalid"
+        (click)="logIn()"
+      >
+        Login
+      </button>
+      <!-- <p class="text-center">
+        Dont't have an account?
+        <button
+          type="button"
+          class="btn btn-link p-0 text-primary text-decoration-underline"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Register User
+        </button>
+      </p> -->
+
+      <p class="text-center">
+        Dont't have an account?
+        <button
+          type="button"
+          class="btn btn-link p-0 text-primary text-decoration-underline"
+          data-bs-toggle="modal"
+          data-bs-target="#registerModal"
+        >
+          Register
+        </button>
+      </p>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="registerModal"
+        tabindex="-1"
+        aria-labelledby="registerModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="registerModalLabel">
+                Register Form
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <!-- Toogle buttons -->
+              <div class="d-flex justify-content-center">
+                <button
+                  type="button"
+                  class="btn me-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#jobseekerModal"
+                >
+                  Job Seeker
+                </button>
+
+                <!-- <button
+                  type="button"
+                  class="btn me-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#jobproviderModal"
+                >
+                  Job Provider
+                </button> -->
+              </div>
+            </div>
+
+            <!-- <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <!-- Job Provider Modal -->
+      <!-- <div
+        class="modal fade"
+        id="jobproviderModal"
+        tabindex="-1"
+        aria-labelledby="jobproviderModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <form [formGroup]="jobProviderForm">
+            <div class="mb-3">
+              <label for="jobprovidername" class="form-label mt-3"
+                >Company name</label
+              >
+              <input
+                type="name"
+                class="form-control p-3 border border-secondary"
+                id="jobproviderName"
+                formControlName="company_name"
+                placeholder="Enter a Company name"
+              />
+              <div class="mb-3">
+                <label for="jobprovideremail" class="form-label mt-2"
+                  >Email ID</label
+                >
+                <input
+                  type="email"
+                  class="form-control p-3 border border-secondary"
+                  id="jobproviderEmail"
+                  formControlName="company_emailId"
+                  placeholder="Tell us your Email ID"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="jobproviderpassword" class="form-label mt-2"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  id="jobproviderPassword"
+                  class="form-control p-3 border border-secondary"
+                  aria-describedby="passwordHelpBlock"
+                  formControlName="company_password"
+                  placeholder="Enter Password"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="jobproviderconfirmpassword" class="form-label mt-2"
+                  >Confirm Password</label
+                >
+                <input
+                  type="password"
+                  id="jobproviderConfirmPassword"
+                  class="form-control p-3 border border-secondary"
+                  aria-describedby="passwordHelpBlock"
+                  formControlName="company_confirmPassword"
+                  placeholder="Enter Confirm Password"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="jobprovidernumber" class="form-label mt-2"
+                  >Phone number</label
+                >
+                <input
+                  type="tel"
+                  class="form-control p-3 border border-secondary"
+                  id="jobproviderPhoneNumber"
+                  formControlName="company_phoneNo"
+                  placeholder="Enter your phone number"
+                  minlength="10"
+                  maxlength="10"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="jobproviderlocation" class="form-label mt-2"
+                  >Location</label
+                >
+                <input
+                  type="text"
+                  id="jobproviderLocation"
+                  class="form-control p-3 border border-secondary"
+                  formControlName="company_location"
+                  placeholder="Mention the location you live in"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="jobprovidercompanylogo" class="form-label">Company Logo</label>
+                <input class="form-control" type="file" id="companyLogo" />
+              </div>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="jobProviderRegister()"
+              >
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+      </div> -->
+
+      <!--Job Seeker Modal -->
+      <div
+        class="modal fade"
+        id="jobseekerModal"
+        tabindex="-1"
+        aria-labelledby="jobseekerModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="jobseekerModalLabel">
+                Job Seeker Register
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="jobSeekerForm">
+                <div class="mb-3">
+                  <label for="jobseekerfullname" class="form-label mt-3"
+                    >Full name</label
+                  >
+                  <input
+                    type="name"
+                    class="form-control p-3 border border-secondary"
+                    id="jobseekerFullname"
+                    formControlName="jobseekerName"
+                    placeholder="What is your name?"
+                  />
+                  <div class="mb-3">
+                    <label
+                      for="jobseekeremail"
+                      class="form-label mt-2"
+                      >Email ID</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control p-3 border border-secondary"
+                      id="jobseekerEmail"
+                      formControlName="jobseekerEmail_id"
+                      placeholder="Tell us your Email ID"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="jobseekerpassword" class="form-label mt-2"
+                      >Password</label
+                    >
+                    <input
+                      type="password"
+                      id="jobseekerPassword"
+                      class="form-control p-3 border border-secondary"
+                      aria-describedby="passwordHelpBlock"
+                      formControlName="jobseekerPassword"
+                      placeholder="Enter Password"
+                    />
+                    <!-- <div *ngIf="reactiveform.controls.password.invalid && (reactiveform.controls.password.dirty || reactiveform.controls.password.touched)">
+                      
+                      <small class="text-danger" *ngIf="reactiveform.controls.password.errors?.required">Password is required.</small>
+                      <small class="text-danger" *ngIf="reactiveform.controls.password.errors?.minlength">Password must be at least 6 characters long.</small>
+                      <small class="text-danger" *ngIf="reactiveform.controls.password.errors?.pattern">
+                        Password must contain at least one uppercase, one lowercase, one digit, and one special character.
+                      </small>
+                    </div> -->
+                  </div>
+                  <div class="mb-3">
+                    <label for="jobseekerconfirmpassword" class="form-label mt-2"
+                      >Confirm Password</label
+                    >
+                    <input
+                      type="password"
+                      id="jobseekerConfirmPassword"
+                      class="form-control p-3 border border-secondary"
+                      aria-describedby="passwordHelpBlock"
+                      formControlName="jobseekerConfirm_password"
+                      placeholder="Enter Confirm Password"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label
+                      for="jobseekerphonenumber"
+                      class="form-label mt-2"
+                      >Phone number</label
+                    >
+                    <input
+                      type="tel"
+                      class="form-control p-3 border border-secondary"
+                      id="jobseekerPhoneNumber"
+                      formControlName="jobseekerPhone_no"
+                      placeholder="Enter your phone number"
+                      minlength="10"
+                      maxlength="10"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="jobseekerlocation" class="form-label mt-2"
+                      >Location</label
+                    >
+                    <input
+                      type="text"
+                      id="jobseekerLocation"
+                      class="form-control p-3 border border-secondary"
+                      formControlName="jobseekerLocation"
+                      placeholder="Mention the location you live in"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="jobseekerresume" class="form-label"
+                      >Upload Resume</label
+                    >
+                    <input
+                      class="form-control"
+                      type="file"
+                      id="jobseekerResume"
+                      #resumeInput
+                      (change)="fileSelect($event)"
+                    />
+                  </div>
+                  <!-- qualification -->
+                  <!-- <div class="mb-3">
+                    <label for="qualification" class="form-label mt-2"
+                      >Qualification:</label
+                    >
+                    <input
+                      type="text"
+                      id="inputqualification9"
+                      class="form-control p-3 border border-secondary"
+                      formControlName="qualification"
+                      placeholder="Enter Your Qualification"
+                    />
+                  </div> -->
+                  <!-- experience section -->
+                  <!-- <div class="mb-3">
+                    <label for="work-status" class="form-label mt-2"
+                      >Experience</label
+                    >
+                    <div class="row">
+                      <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div
+                          class="card work-status"
+                          [ngClass]="{
+                            'selected-card': selectedStatus === 'experienced'
+                          }"
+                          (click)="setExperience('experienced')"
+                        >
+                          <div
+                            class="card-body d-flex justify-content-between align-items-center"
+                          >
+                            <div>
+                              <h5 class="card-title">I'm experienced</h5>
+                              <p class="card-text" style="font-size: 13px">
+                                I have work experience (excluding internships)
+                              </p>
+                            </div>
+                            <i class="fas fa-briefcase fs-1"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div
+                          class="card work-status"
+                          [ngClass]="{
+                            'selected-card': selectedStatus === 'fresher'
+                          }"
+                          (click)="setExperience('fresher')"
+                        >
+                          <div
+                            class="card-body d-flex justify-content-between align-items-center"
+                          >
+                            <div>
+                              <h5 class="card-title">I'm a fresher</h5>
+                              <p class="card-text" style="font-size: 13px">
+                                I am a student/Haven't worked after graduation
+                              </p>
+                            </div>
+                            <i class="fa-solid fa-book-open fs-1"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary" (click)="jobSeekerRegister()">
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <p class="w-100 mt-3" style="font-size: 12px">
+        By clicking Continue to join or sign in, you agree to CareerLink’s User
+        Agreement, Privacy Policy, and Cookie Policy.
+      </p> -->
+    </div>
+  </div>
+  <div class="login_img">
+    <img src="/assets/login_bg.jpg" alt="" width="550" height="550" />
+  </div>
+</div>
+
+<footer>
+  <app-footer></app-footer>
+</footer>

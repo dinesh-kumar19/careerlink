@@ -1,0 +1,135 @@
+
+.icon-text{
+    //   display: flex;
+      // flex-direction: column;
+      padding-left: 12px;
+    }
+    
+    
+    .job-card {
+      background-color: whitesmoke;
+      padding: 30px;
+      border: none;
+    }
+    
+    .select_category {
+      font-size: 35px;
+      color: rgba(0, 0, 255, 0.544);
+    }
+    
+    .select_category:hover {
+      color: green;
+    }
+    
+    .job-type {
+      border: 1px solid;
+      border: none;
+      border-radius: 20px;
+      width: 90px;
+      background-color: rgb(76, 76, 120);
+      color: whitesmoke;
+    }
+    
+    .job-apply {
+      font-family: cursive;
+    }
+    
+    .job-apply:hover {
+      background-color: blue;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(1, 1, 1, 0.19);
+    }
+    @media (max-width: 576px) {
+      .job-card {
+        padding: 15px;
+      }
+    
+      .select_category {
+        font-size: 24px;
+      }
+    
+      .d-flex {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
+      .job-type {
+        width: 100px;
+        margin-bottom: 10px;
+      }
+    
+      .job-apply {
+        width: 100%;
+      }
+    
+      .modal-body .form-control {
+        width: 100%;
+      }
+    }
+    .body-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
+    .job-skills {
+      border: 1px solid;
+      border: none;
+      background-color: whitesmoke;
+      padding: 5px 20px;
+      margin: 5px;
+    }
+    
+    .job_cate_img {
+      border: 1px solid whitesmoke;
+      background-color: white;
+      border-radius: 20px;
+      padding: 12px;
+    }
+    
+    .job_cate_img:hover {
+      background-color: rgb(207, 205, 205);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    .icon-subtext {
+      margin-left: 2rem;
+    }
+    
+    .card-body span {
+      display: block;
+    }
+    
+    .job-overview-card {
+      background-color: whitesmoke;
+    }
+    
+    @media (max-width: 992px) {
+      .body-content {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .job-overview-card {
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .icon-text {
+        display: block;
+      }
+    
+      .icon-subtext {
+        margin-left: 0;
+        padding-left: 1.5rem;
+      }
+    
+      .job-card, .job-overview-card {
+        width: 100%;
+      }
+    
+      .d-flex {
+        flex-direction: column;
+      }
+    }

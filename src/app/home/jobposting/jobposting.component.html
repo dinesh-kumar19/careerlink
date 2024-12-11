@@ -1,0 +1,161 @@
+<header>
+    <app-header></app-header>
+  </header>
+
+  <section>
+    <div class="card mb-3 job-card mt-4">
+        <div *ngFor="let job of jobPosting">
+          <div class="card-body mx-3 mx-md-5">
+            <h5 class="select_category">{{ job.jobtitle }}</h5>
+            <div class="d-flex flex-wrap my-3 text-dark-emphasis">
+              <p class="mx-2"><i class="fa-solid fa-briefcase mx-2"></i>{{job.companyname}}</p>
+              <p class="mx-2">
+                <i class="fa-solid fa-location-dot mx-2"></i>{{ job.location }}
+              </p>
+              <p><i class="fa-solid fa-dollar-sign mx-2"></i>{{ job.salary }}</p>
+              <p>
+                <i class="fa-regular fa-calendar-days mx-2"></i>{{ job.dateposted }}
+              </p>
+            </div>
+            <div class="d-flex flex-wrap">
+              <p class="job-type p-1 text-center mx-1">Part Time</p>
+              <p class="job-type p-1 text-center bg-info mx-1">Urgent</p>
+            </div>
+      
+            <div class="d-flex justify-content-end mt-3">
+              <button
+                type="button"
+                class="btn btn-primary p-3 job-apply"
+                style="width: 200px"
+                (click)="applyForJob()"
+              >
+                Apply For Job
+              </button>
+              <!-- <button
+                class="btn btn-dark p-3 job-apply"
+              >
+                Applied!
+              </button> -->
+            </div>
+          </div>
+      
+          <div class="body-content mb-3">
+            <div class="container-fluid job_des">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div>
+                    <h5>Job Description</h5>
+                    <p class="mt-4">
+                      {{ job.jobdescription }}
+                    </p>
+                  </div>
+                  <div>
+                    <h5>Key Responsibilities</h5>
+                    <ul class="mt-4">
+                      <li>
+                        {{ job.keyresponse_1 }}
+                      </li>
+                      <li>
+                        {{ job.keyresponse_2 }}
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5>Skill & Experience</h5>
+                    <ul class="mt-4">
+                      <li>
+                        {{ job.skills_1 }}
+                      </li>
+                      <li>
+                        {{ job.skills_2 }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="card job-overview-card">
+                    <div class="card-body">
+                      <h4 class="pb-3">Job Overview</h4>
+                      <hr />
+                      <div class="d-flex">
+                        <i class="fa-regular fa-building fs-5 mx-3"></i>
+                        <p>
+                          Company name:<br />
+                          {{ job.companyname }}
+                        </p>
+                      </div>
+                      <div class="d-flex">
+                        <i class="fa-solid fa-location-dot fs-5 mx-3"></i>
+                        <p>
+                          Location:<br />
+                          {{ job.location }}
+                        </p>
+                      </div>
+                      <div class="d-flex">
+                        <i class="fa-solid fa-desktop fs-5 mx-3"></i>
+                        <p>
+                          Job Title:<br />
+                          {{ job.jobtitle }}
+                        </p>
+                      </div>
+                      <div class="d-flex">
+                        <i class="fa-solid fa-calendar fs-5 mx-3"></i>
+                        <p>Date Posted:<br />{{ job.dateposted }}</p>
+                      </div>
+                      <div class="d-flex">
+                        <i class="fa-solid fa-hourglass-end fs-5 mx-3"></i>
+                        <p>
+                          Expiration date:<br />
+                          {{ job.expiredate }}
+                        </p>
+                      </div>
+                      <div class="d-flex">
+                        <i class="fa-solid fa-user fs-5 mx-3"></i>
+                        <p>
+                          Employee Type:<br />
+                          {{ job.employeetype }}
+                        </p>
+                      </div>
+                      <div class="d-flex">
+                        <i class="fa-solid fa-book fs-5 mx-3"></i>
+                        <p>
+                          Qualifications:<br />
+                          {{ job.qualifications }}
+                        </p>
+                      </div>
+                      <div class="d-flex">
+                        <i class="fa-solid fa-suitcase fs-5 mx-3"></i>
+                        <p>
+                          Experience:<br />
+                          {{ job.experience }}
+                        </p>
+                      </div>
+                      <div class="d-flex">
+                        <i class="fa-regular fa-money-bill-1 fs-5 mx-3"></i>
+                        <p>
+                          Salary:<br />
+                          {{ job.salary }}
+                        </p>
+                      </div>
+                      <div class="d-flex">
+                        <i class="fa-regular fa-money-bill-1 fs-5 mx-3"></i>
+                        <p>
+                          Skills:<br />
+                          {{ job.skillsrequired }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </section>
+
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+  

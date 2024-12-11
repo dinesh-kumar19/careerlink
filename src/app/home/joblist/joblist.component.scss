@@ -1,0 +1,57 @@
+// .job-img-style{
+//     border: 1px solid;
+//     border: none;
+//     border-radius: 12px;
+//     background-color: rgb(234, 228, 228);
+// }
+// .select_category:hover{
+//     cursor: pointer;
+// }
+// .job-type-1{
+//     border: 1px solid;
+//     border-radius: 15px;
+//     border: none;
+//     background-color: rgb(101, 165, 101);
+//     color: whitesmoke;
+// }
+// .job-type-2{
+//     border: 1px solid;
+//     border-radius: 15px;
+//     border: none;
+//     background-color: rgb(20, 29, 190);
+//     color: whitesmoke;
+// }
+
+
+.job-img-style {
+    border-radius: 12px;
+    background-color: rgb(234, 228, 228);
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .select_category:hover {
+    cursor: pointer;
+  }
+  
+  .job-type-1 {
+        border: 1px solid;
+        border-radius: 15px;
+        border: none;
+        background-color: rgb(101, 165, 101);
+        color: whitesmoke;
+  }
+  .job-type-2{
+        border: 1px solid;
+        border-radius: 15px;
+        border: none;
+        background-color: rgb(20, 29, 190);
+        color: whitesmoke;
+  }
+  @media (max-width: 375px) {
+    .text-dark-emphasis .col-md-3 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  

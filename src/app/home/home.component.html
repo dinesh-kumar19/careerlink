@@ -1,0 +1,272 @@
+<header>
+  <app-header></app-header>
+</header>
+
+<main class="mt-0">
+  <!-- Header searchbar content -->
+  <section>
+    <div class=" container-fluid top_content">
+      <div class="top_content">
+        <div class="top_content_align pb-4">
+          <div
+            class="top_content_1"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            style="font-size: 45px;"
+          >
+            Make The Best Move to Choose Your <br>
+            <span class="fw-bolder" style="color: rgb(15, 84, 30); font-size: 60px;"
+              >New Job</span
+            >
+          </div>
+          <div data-aos="fade-right" data-aos-duration="1000" style="font-size: 20px;">
+            Find Jobs, Employment & Career Opportunities. Some or the companies
+            we've helped recruit excellent applicants over the years.
+          </div>
+          <div>
+            <button type="button" class="btn btn-success btn-lg px-5 mt-5 fw-bolder" (click)="searchJob()">Search A Job</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-fluid">
+      <form>
+      <div class="row align-items-center border p-4 text-white" style="background-color: #cbd7da;">
+          <div class="col-md-3 col-sm-3 col-xs-6">
+            <input class="form-control form-control-lg mb-3" type="text" placeholder="Job title / Companies" aria-label="default input example">
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-6">
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option selected>Select experience</option>
+                <option value="fresher">Fresher (less than 1 year)</option>
+                <option *ngFor="let option of experienceOptions" [value]="option">{{option}}</option>
+            </select>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-6">
+            <input class="form-control form-control-lg mb-3" type="text" placeholder="Location" aria-label="default input example">
+          </div>
+        <div class="col-md-3 col-sm-3 col-xs-6">
+          <button type="button" class="btn btn-success btn-lg px-5">Search</button>
+        </div>
+      </div> 
+      </form>
+    </div>
+  </section>
+
+  <!-- Body Job Categories -->
+  <section>
+    <div class="container mt-5">
+      <div class="text-center">
+        <h2>Popular Job Categories</h2>
+        <p>
+          Search all the open positions on the web. Get your own personalized
+          salary estimate. Read reviews on over lots of companies worldwide.
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="category-scroll">
+        <div class="row row-cols-md-4 row-cols-sm-2 g-4">
+          <div class="col" *ngFor="let category of categories">
+            <div class="card border-outline-secondary mb-3">
+              <div class="card-body">
+                <div class="">
+                  <img
+                    [src]="'http://localhost:3000/uploads/' + category.imageUrl"
+                    alt="img"
+                    width="75"
+                    height="75"
+                    class="job-icon"
+                  />
+                  <div>
+                    <a style="text-decoration: none"
+                      ><h5
+                        class="card-title text-dark mx-3 category-style"
+                        (click)="viewSubcategories(category.jobcategory_id)"
+                      >
+                        {{ category.categoryname }}
+                      </h5></a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div *ngIf="loading" class="loading-indicator">Loading...</div>
+      <div class="scroll-buttons">
+        <button
+          class="arrow-button"
+          (click)="scrollLeft()"
+          [disabled]="loading"
+        >
+          &#8592;
+        </button>
+        <button
+          class="arrow-button"
+          (click)="scrollRight()"
+          [disabled]="loading"
+        >
+          &#8594;
+        </button>
+      </div> -->
+    </div>
+    <!-- Browse more job button -->
+    <div class="d-flex justify-content-center p-4">
+      <button class="btn btn-success" (click)="navigateToJobList()">
+        Browse More Jobs
+      </button>
+    </div>
+  </section>
+  <!-- Image explain and ContactUs -->
+  <section>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-md-6">
+          <div
+            class="mid_bg1 d-flex justify-content-center"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            <img src="/assets/mid_bg1.jpg" alt="" width="350" height="400" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div data-aos="fade-left" data-aos-duration="1000">
+            <h2>
+              Millions of jobs.<br />
+              Find the one that's right for you.
+            </h2>
+            <p>
+              Search all the open positions on the web. Get your own
+              personalized salary estimate. Read reviews on over 30000+
+              companies worldwide.
+            </p>
+            <p>
+              <i
+                class="fa fa-check-circle px-2"
+                style="color: green"
+                aria-hidden="true"
+              ></i
+              >Digital Marketing Solutions for Tomorrow
+            </p>
+            <p>
+              <i
+                class="fa fa-check-circle px-2"
+                style="color: green"
+                aria-hidden="true"
+              ></i
+              >Our Talented & Experienced Marketing Agency
+            </p>
+            <p>
+              <i
+                class="fa fa-check-circle px-2"
+                style="color: green"
+                aria-hidden="true"
+              ></i
+              >Create your own skin to match your brand
+            </p>
+            <button type="button" routerLink="/login" class="btn btn-success">
+              <i class="fa fa-envelope px-2"></i>Contact Us
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Job support cards -->
+  <section>
+    <div class="container mt-3">
+      <div class="text-center">
+        <h2>Here's Why you'll love it CareerLink</h2>
+        <p>
+          Search all the open positions on the web. Get your own personalized
+          salary estimate. Read reviews on over lots of companies worldwide.
+        </p>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+        <div class="col">
+          <div class="card text-center mb-3">
+            <div class="card-body aboutcard__full_style">
+              <img
+                src="/assets/job_explain/phone_img.png"
+                alt=""
+                class="about_card"
+              />
+              <h5 class="card-title my-3">24/7 Support</h5>
+              <p class="card-text">
+                Many desktop publishing now use and a search for job
+              </p>
+              <a href="#" class="text-decoration-none text-dark"
+                >Read More <i class="fa-solid fa-arrow-right icon_style"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-center mb-3">
+            <div class="card-body aboutcard__full_style">
+              <img
+                src="/assets/job_explain/react_img.png"
+                alt=""
+                class="about_card"
+              />
+              <h5 class="card-title my-3">Tech & Startup Jobs</h5>
+              <p class="card-text">
+                Many desktop publishing now use and a search for job
+              </p>
+              <a href="#" class="text-decoration-none text-dark"
+                >Read More <i class="fa-solid fa-arrow-right icon_style"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-center mb-3">
+            <div class="card-body aboutcard__full_style">
+              <img
+                src="/assets/job_explain/adduser_img.png"
+                alt=""
+                class="about_card"
+              />
+              <h5 class="card-title my-3">Quick & Easy</h5>
+              <p class="card-text">
+                Many desktop publishing now use and a search for job
+              </p>
+              <a href="#" class="text-decoration-none text-dark"
+                >Read More <i class="fa-solid fa-arrow-right icon_style"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-center mb-3">
+            <div class="card-body aboutcard__full_style">
+              <img
+                src="/assets/job_explain/clock_img.png"
+                alt=""
+                class="about_card"
+              />
+              <h5 class="card-title my-3">Save Time</h5>
+              <p class="card-text">
+                Many desktop publishing now use and a search for job
+              </p>
+              <a href="#" class="text-decoration-none text-dark"
+                >Read More <i class="fa-solid fa-arrow-right icon_style"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <app-footer></app-footer>
+</footer>

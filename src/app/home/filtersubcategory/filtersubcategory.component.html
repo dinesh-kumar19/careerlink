@@ -1,0 +1,103 @@
+<section>
+     <!-- Filter design -->
+     <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="filter-sidebar border p-3">
+              <h5>Filters</h5>
+              <div class="form-group">
+                <label for="locationFilter">Location</label>
+                <input
+                  type="text"
+                  id="locationFilter"
+                  class="form-control"
+                  placeholder="Enter location"
+                />
+              </div>
+              <div class="form-group">
+                <label for="jobTypeFilter">Job Type</label>
+                <select id="jobTypeFilter" class="form-control">
+                  <option value="">Select Job Type</option>
+                  <option value="full-time">Full-Time</option>
+                  <option value="part-time">Part-Time</option>
+                </select>
+              </div>
+              <button class="btn btn-primary mt-3">Apply Filters</button>
+            </div>
+          </div>
+  
+          <!-- right side content about subcategory -->
+          <div class="col-md-8">
+            <div
+              *ngFor="let subcategory of subcategories"
+              class="card mb-3 job-card mt-4 bg-light"
+            >
+              <div class="card-body row align-items-center">
+                <div class="col-3 col-md-2 col-lg-1 text-center">
+                  <img
+                    [src]="
+                      'http://localhost:3000/jobsubcategory/' +
+                      subcategory.imageUrl
+                    "
+                    alt=""
+                    class="img-fluid job-img-style"
+                  />
+                </div>
+                <div class="col-9 col-md-10 col-lg-11">
+                  <div>
+                    <a class="text-decoration-none" style="cursor: pointer;">
+                      <p class="select_category fs-4" (click)="viewJobpostings(subcategory.jobsubcategory_id)">
+                        {{ subcategory.jobtitle }}
+                      </p>
+                    </a>
+                  </div>
+                  <div class="d-flex flex-wrap my-3 text-dark-emphasis">
+                    <p class="mx-3">
+                      <i class="fa-solid fa-briefcase mx-2"></i
+                      >{{ subcategory.companyname }}
+                    </p>
+                    <p>
+                      <i class="fa-solid fa-dollar-sign mx-2"></i
+                      >{{ subcategory.salary }}
+                    </p>
+                    <p class="mx-3">
+                      <i class="fa-solid fa-location-dot mx-2"></i
+                      >{{ subcategory.location }}
+                    </p>
+                    <p>
+                      <i class="fa-regular fa-calendar-days mx-2"></i
+                      >{{ subcategory.date }}
+                    </p>
+                  </div>
+                  <div class="d-flex">
+                    <p class="job-type-1 p-1 text-center mx-3">
+                      {{ subcategory.jobtype }}
+                    </p>
+                    <!-- <p class="job-type-2 p-1 text-center mx-3">
+                      {{ subcategory.need }}
+                    </p> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!subcategories.length" class="text-center">
+              <p>No subcategories found for this category.</p>
+            </div>
+          </div>
+          <!-- Total pages and Slides -->
+          <div class="text-center mt-4">
+            <button
+              class="btn btn-primary mx-2"
+            >
+              Previous
+            </button>
+            <!-- <span>Page {{ currentPage }} of {{ totalPages }}</span> -->
+            <button
+              class="btn btn-primary mx-2"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+</section>
