@@ -1,93 +1,135 @@
-// top search bar style
-.top_content{
-    background-image: url(/assets/homecard2.jpg);
-    width: 100%;
-    height: 510px;
-    background-color: rgba(197, 224, 221, 0.945);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    overflow: hidden;
-}
-.top_content_align{
-    padding: 180px 0 0 70px ;
-    margin-left: 100px;
-}
-.top_content_1{
-  font-weight: 700;
-  font-size: 40px;
-}
+// // top search bar style
+// .top_content{
+//     background-image: url(/assets/homecard2.jpg);
+//     width: 100%;
+//     height: 510px;
+//     background-color: rgba(197, 224, 221, 0.945);
+//     background-size: cover;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     overflow: hidden;
+// }
+// .top_content_align{
+//     padding: 180px 0 0 70px ;
+//     margin-left: 100px;
+// }
+// .top_content_1{
+//   font-weight: 700;
+//   font-size: 40px;
+// }
 
-.about_card{
-  border: 1px solid whitesmoke;
-  border-radius: 15px;
-  background-color: rgb(215, 225, 215);
-  padding: 10px;
-}
-.aboutcard__full_style:hover{
-  background-color: rgb(198, 210, 198);
-}
+// .about_card{
+//   border: 1px solid whitesmoke;
+//   border-radius: 15px;
+//   background-color: rgb(215, 225, 215);
+//   padding: 10px;
+// }
+// .aboutcard__full_style:hover{
+//   background-color: rgb(198, 210, 198);
+// }
 
-// card image job icon
-.job-icon{
-  border: 1px solid;
-  border: none;
-  border-radius: 12px;
+// // card image job icon
+// .job-icon{
+//   border: 1px solid;
+//   border: none;
+//   border-radius: 12px;
+//   background-color: white;
+//   padding: 15px;
+// }
+// // job category text hover
+// .category-style:hover{
+//   cursor: pointer;
+//   color: green;
+// }
+
+
+// @media only screen and (max-width: 768px) {
+//   .top_content{
+//     background-image: none;
+//     background-color: #eeefef;;
+// }
+// .top_content_align{
+//   margin-top: 20px;
+//   padding: 20px 10px;
+//   margin-left: 0;
+// }
+// .top_content_1 {
+//   font-size: 24px; 
+//   text-align: center;
+//   padding-bottom: 40px;
+// }
+// }
+// // category hover
+// .select_category:hover{
+//   cursor: pointer;
+//   color: blue;
+// }
+// .job-type{
+//   border: 1px solid rgb(32, 32, 158);
+//   border-radius: 10px;
+//   width: 90px;
+//   margin-left: 35px;
+//   background-color: rgb(76, 76, 120);
+//   color: whitesmoke;
+// }
+// .job-apply{
+//   font-family: cursive;
+// }
+// .job-apply:hover{
+//   background-color: blue;
+//   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(1, 1, 1, 0.19);
+// }
+// // Job category img style
+// .job_cate_img{
+//   border: 1px solid whitesmoke;
+//   background-color: white;
+//   border-radius: 20px;
+//   padding: 12px;
+// }
+// .job_cate_img:hover{
+//   background-color: rgb(207, 205, 205);
+//   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+// }
+
+/* Ensure job cards are consistently styled and responsive */
+.job-icon {
+  border-radius: 50%;
   background-color: white;
   padding: 15px;
+  width: 75px;
+  height: 75px;
+  object-fit: cover; /* Ensures the image scales well */
 }
-// job category text hover
-.category-style:hover{
+
+.category-style:hover {
   cursor: pointer;
   color: green;
+  font-weight: bold; /* Makes hover effect more noticeable */
 }
 
+.card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
+.card:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Top Content */
 @media only screen and (max-width: 768px) {
-  .top_content{
+  .top_content {
     background-image: none;
-    background-color: #eeefef;;
+    background-color: #eeefef;
+  }
+  .top_content_align {
+    margin-top: 20px;
+    padding: 20px 10px;
+    margin-left: 0;
+  }
+  .top_content_1 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 40px;
+  }
 }
-.top_content_align{
-  margin-top: 20px;
-  padding: 20px 10px;
-  margin-left: 0;
-}
-.top_content_1 {
-  font-size: 24px; 
-  text-align: center;
-  padding-bottom: 40px;
-}
-}
-// category hover
-.select_category:hover{
-  cursor: pointer;
-  color: blue;
-}
-.job-type{
-  border: 1px solid rgb(32, 32, 158);
-  border-radius: 10px;
-  width: 90px;
-  margin-left: 35px;
-  background-color: rgb(76, 76, 120);
-  color: whitesmoke;
-}
-.job-apply{
-  font-family: cursive;
-}
-.job-apply:hover{
-  background-color: blue;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(1, 1, 1, 0.19);
-}
-// Job category img style
-.job_cate_img{
-  border: 1px solid whitesmoke;
-  background-color: white;
-  border-radius: 20px;
-  padding: 12px;
-}
-.job_cate_img:hover{
-  background-color: rgb(207, 205, 205);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-

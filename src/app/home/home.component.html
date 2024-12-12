@@ -4,7 +4,7 @@
 
 <main class="mt-0">
   <!-- Header searchbar content -->
-  <!-- <section>
+  <section>
     <div class=" container-fluid top_content">
       <div class="top_content">
         <div class="top_content_align pb-4">
@@ -29,9 +29,9 @@
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
-  <!-- <section>
+  <section>
     <div class="container-fluid">
       <form>
       <div class="row align-items-center border p-4 text-white" style="background-color: #cbd7da;">
@@ -54,7 +54,7 @@
       </div> 
       </form>
     </div>
-  </section> -->
+  </section>
 
   <!-- Body Job Categories -->
   <section>
@@ -69,20 +69,20 @@
     </div>
 
     <div class="container">
-      <!-- <div class="category-scroll">
-        <div class="row row-cols-md-4 row-cols-sm-2 g-4">
+      <div class="category-scroll">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
           <div class="col" *ngFor="let category of categories">
-            <div class="card border-outline-secondary mb-3">
-              <div class="card-body">
-                <div class="">
+            <div class="card h-100 border-outline-secondary mb-3">
+              <div class="card-body text-center">
                   <img
                     [src]="'http://localhost:3000/uploads/' + category.imageUrl"
-                    alt="img"
-                    width="75"
-                    height="75"
-                    class="job-icon"
+                    alt="CategoryImage"
+                     
+                    class="job-icon mb-3"
                   />
-                  <div>
+                  <!-- width="75"
+                    height="75" -->
+                  <!-- <div> -->
                     <a style="text-decoration: none"
                       ><h5
                         class="card-title text-dark mx-3 category-style"
@@ -91,13 +91,13 @@
                         {{ category.categoryname }}
                       </h5></a
                     >
-                  </div>
-                </div>
+                  <!-- </div> -->
               </div>
             </div>
           </div>
+           <!-- End of Card Loop -->
         </div>
-      </div> -->
+      </div>
       <!-- <div *ngIf="loading" class="loading-indicator">Loading...</div>
       <div class="scroll-buttons">
         <button
