@@ -30,6 +30,12 @@ input {
     max-width: 100%;
     height: auto;
 }
+// newly added
+.job-toggle-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
 // .work-status {
 //   cursor: pointer;
 // }

@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   loginError:string = '';
   userDetails:any = null;
   selectedFile: File | null = null;
+  selectedForm: string = 'seeker';
   allowedTypes = [
     'application/pdf',
     'application/msword',
@@ -176,5 +177,6 @@ export class LoginComponent implements OnInit {
       }
     );
     }
+   
   }
   

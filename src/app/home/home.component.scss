@@ -14,50 +14,47 @@
     margin-left: 100px;
 }
 .top_content_1{
-  // font-weight: 700;
-  // font-size: 40px;
-  font-size: calc(1.5rem + 1vw);
+  font-weight: 700;
+  font-size: 40px;
+  font-size: calc(1.5rem + 1vw);/* Scalable font size */
 }
 // -----------------------
 // newly added
-.top_content button {
-  margin-top: 20px;
-}
-.category-scroll {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+// .top_content button {
+//   margin-top: 20px;
+// }
+// .category-scroll {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+// }
 .card:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transform: translateY(-5px);
   transition: all 0.3s ease;
 }
 // Mobile Responsiveness (About Cards):
-.about_card img {
-  max-width: 100%;
-  height: auto;
-}
+// .about_card img {
+//   max-width: 100%;
+//   height: auto;
+// }
 // Contact Us Section:
 // Center-align the text and button on smaller screens:
 
-.contact-section {
-  text-align: center;
-}
-button[routerLink='/login'] {
-  margin-top: 20px;
-}
+// .contact-section {
+//   text-align: center;
+// }
 
 // ------------------------
-.about_card{
-  border: 1px solid whitesmoke;
-  border-radius: 15px;
-  background-color: rgb(215, 225, 215);
-  padding: 10px;
-}
-.aboutcard__full_style:hover{
-  background-color: rgb(198, 210, 198);
-}
+// .about_card{
+//   border: 1px solid whitesmoke;
+//   border-radius: 15px;
+//   background-color: rgb(215, 225, 215);
+//   padding: 10px;
+// }
+// .aboutcard__full_style:hover{
+//   background-color: rgb(198, 210, 198);
+// }
 
 // card image job icon
 .job-icon{
