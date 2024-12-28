@@ -1,0 +1,58 @@
+<h2 class="text-center p-2 text-primary">Admin Login Form</h2>
+<!-- <div class="login_header">Welcome to your professional community</div> -->
+    <div class="container">
+      <form [formGroup]="adminLoginForm">
+        <div class="mb-3">
+          <label for="adminemail" class="form-label mt-3">Email</label>
+          <input
+            type="email"
+            class="form-control border border-dark p-3"
+            id="adminEmail"
+            formControlName="adminEmail_id"
+            placeholder="Enter Email ID"
+            required
+          />
+          <div
+            *ngIf="
+              adminLoginForm.controls.adminEmail_id.invalid &&
+              (adminLoginForm.controls.adminEmail_id.dirty ||
+                adminLoginForm.controls.adminEmail_id.touched)
+            "
+          >
+            <small class="text-danger">Please enter a valid email.</small>
+          </div>
+        </div>
+        <div class="mb-1">
+          <label for="adminpassword" class="form-label mt-3">Password</label>
+          <input
+            type="password"
+            id="adminPassword"
+            class="form-control border border-dark p-3"
+            aria-describedby="passwordHelpBlock"
+            formControlName="admin_Password"
+            placeholder="Enter Password"
+          />
+          <div
+            *ngIf="
+              adminLoginForm.controls.admin_Password.invalid &&
+              (adminLoginForm.controls.admin_Password.dirty ||
+              adminLoginForm.controls.admin_Password.touched)
+            "
+          >
+            <small class="text-danger"
+              >Password must be at least 6 characters long.</small
+            >
+          </div>
+        </div>
+      </form>
+
+      <button
+        type="button"
+        class="signin_button btn btn-primary mt-4"
+        [disabled]="adminLoginForm.invalid"
+        (click)="logIn()"
+      >
+        Login
+      </button>
+    </div>
+    

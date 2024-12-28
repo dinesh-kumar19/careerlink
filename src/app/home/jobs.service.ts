@@ -13,7 +13,6 @@ export class JobsService {
   private adminLoggedIn: boolean = false;
 
   constructor(private http:HttpClient, private router: Router) {
-    
    }
   getJobcategory(limit: number, offset: number): Observable<any> {
     return this.http.get(`http://localhost:3000/api/jobpostings/getcategory?limit=${limit}&offset=${offset}`);
@@ -47,12 +46,20 @@ export class JobsService {
     return this.http.get('http://localhost:3000/api/jobpostings/getCurrentAdmin', {withCredentials: true});
   }
   isAdminLoggedIn(): boolean{
-    return this.adminLoggedIn || document.cookie.includes('admin_authToken');
+    // return this.adminLoggedIn || document.cookie.includes('admin_authToken');
+    const loggedInStatus = localStorage.getItem('adminLoggedIn') === 'true';
+    const isLoggedInFromCookie = document.cookie.includes('admin_authToken');
+    return loggedInStatus || isLoggedInFromCookie;
   }
   setAdminLoggedIn(status: boolean): void{
     this.adminLoggedIn = status;
+    localStorage.setItem('adminLoggedIn', status.toString());
   }
   logoutAdmin():Observable<any>{
     return this.http.get('http://localhost:3000/api/jobpostings/logoutAdmin', {withCredentials: true});
+  }
+  clearLoginState(): void {
+    localStorage.removeItem('adminLoggedIn');
+    localStorage.removeItem('admin_authToken');
   }
 }

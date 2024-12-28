@@ -19,8 +19,9 @@ logout(): void{
   this.jobsService.logoutAdmin().subscribe(
     (response)=>{
       this.jobsService.setAdminLoggedIn(false);
+      this.jobsService.clearLoginState();
       this.isAdminLoggedIn = false;
-      this.router.navigate(['/home/login']);
+      this.router.navigate(['/admin/CLadmin']);
     },
     (error) => {
       console.error('Logout failed', error);
