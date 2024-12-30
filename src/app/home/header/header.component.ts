@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
     this.jobsService.logoutUser().subscribe(
       (response) => {
         this.jobsService.setLoggedIn(false);
+        this.jobsService.clearUserLoginState();
         this.isLoggedIn = false;
         this.router.navigate(['/home/login']);
       },

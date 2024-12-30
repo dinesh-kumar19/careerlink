@@ -27,19 +27,11 @@
           class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll"
           style="--bs-scroll-height: 100px"
         >
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/home/home">Home</a>
-          </li>
-          <!-- Show Login/Register if not logged in -->
-          <!-- <li class="nav-item" *ngIf="!isLoggedIn">
-            <a class="nav-link" aria-current="page" routerLink="/home/login"
-              >Login/Register</a
-            >
-          </li>
-          <li> -->
-          <!-- Show Dashboard and Logout if logged in -->
           <li class="nav-item" *ngIf="isAdminLoggedIn">
-            <a class="nav-link" aria-current="page" routerLink="admin/adminDashboard"
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="admin/adminDashboard"
               >Admin Dashboard</a
             >
           </li>

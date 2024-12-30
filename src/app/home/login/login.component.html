@@ -8,16 +8,48 @@
     <div class="login_header">Welcome to your professional community</div>
     <div class="container">
       <form [formGroup]="loginForm">
-        <select formControlName="loginType">
+        <!-- <select formControlName="loginType">
           <option value="user">User</option>
           <option value="company">Company</option>
-          <!-- <option value="admin">Admin</option> -->
-        </select>
+        </select> -->
+        <!-- <div> -->
+
+        <div class="form-group">
+          <div class="d-flex flex-row">
+            <!-- User Radio Button -->
+            <div class="form-check mx-2">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="loginType"
+                id="user"
+                formControlName="loginType"
+                value="user"
+              />
+              <label class="form-check-label" for="user"> User </label>
+            </div>
+            <!-- Company Radio Button -->
+            <div class="form-check ml-3 ml-md-0 mx-2">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="loginType"
+                id="company"
+                formControlName="loginType"
+                value="company"
+                checked
+              />
+              <label class="form-check-label" for="company"> Company </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- </div> -->
         <div class="mb-3">
           <label for="loginemail" class="form-label mt-3">Email</label>
           <input
             type="email"
-            class="form-control border border-dark p-3"
+            class="form-control border border-dark p-3 login-input"
             id="loginEmail"
             formControlName="loginEmail_id"
             placeholder="Enter Email ID"
@@ -38,7 +70,7 @@
           <input
             type="password"
             id="loginPassword"
-            class="form-control border border-dark p-3"
+            class="form-control border border-dark p-3 login-input"
             aria-describedby="passwordHelpBlock"
             formControlName="login_Password"
             placeholder="Enter Password"
@@ -120,101 +152,107 @@
                 </button>
               </div>
               <!-- jobseeker modal -->
-              
-                <!-- job seeker form -->
-                <div *ngIf="selectedForm === 'seeker'">
-                  <form [formGroup]="jobSeekerForm">
+
+              <!-- job seeker form -->
+              <div *ngIf="selectedForm === 'seeker'">
+                <form [formGroup]="jobSeekerForm">
+                  <div class="mb-3">
+                    <label for="jobseekerfullname" class="form-label mt-3"
+                      >Full name</label
+                    >
+                    <input
+                      type="name"
+                      class="form-control p-3 border border-secondary"
+                      id="jobseekerFullname"
+                      formControlName="jobseekerName"
+                      placeholder="What is your name?"
+                    />
                     <div class="mb-3">
-                      <label for="jobseekerfullname" class="form-label mt-3"
-                        >Full name</label
+                      <label for="jobseekeremail" class="form-label mt-2"
+                        >Email ID</label
                       >
                       <input
-                        type="name"
+                        type="email"
                         class="form-control p-3 border border-secondary"
-                        id="jobseekerFullname"
-                        formControlName="jobseekerName"
-                        placeholder="What is your name?"
+                        id="jobseekerEmail"
+                        formControlName="jobseekerEmail_id"
+                        placeholder="Tell us your Email ID"
                       />
-                      <div class="mb-3">
-                        <label for="jobseekeremail" class="form-label mt-2"
-                          >Email ID</label
-                        >
-                        <input
-                          type="email"
-                          class="form-control p-3 border border-secondary"
-                          id="jobseekerEmail"
-                          formControlName="jobseekerEmail_id"
-                          placeholder="Tell us your Email ID"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="jobseekerpassword" class="form-label mt-2"
-                          >Password</label
-                        >
-                        <input
-                          type="password"
-                          id="jobseekerPassword"
-                          class="form-control p-3 border border-secondary"
-                          aria-describedby="passwordHelpBlock"
-                          formControlName="jobseekerPassword"
-                          placeholder="Enter Password"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label
-                          for="jobseekerconfirmpassword"
-                          class="form-label mt-2"
-                          >Confirm Password</label
-                        >
-                        <input
-                          type="password"
-                          id="jobseekerConfirmPassword"
-                          class="form-control p-3 border border-secondary"
-                          aria-describedby="passwordHelpBlock"
-                          formControlName="jobseekerConfirm_password"
-                          placeholder="Enter Confirm Password"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label
-                          for="jobseekerphonenumber"
-                          class="form-label mt-2"
-                          >Phone number</label
-                        >
-                        <input
-                          type="tel"
-                          class="form-control p-3 border border-secondary"
-                          id="jobseekerPhoneNumber"
-                          formControlName="jobseekerPhone_no"
-                          placeholder="Enter your phone number"
-                          minlength="10"
-                          maxlength="10"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="jobseekerlocation" class="form-label mt-2"
-                          >Location</label
-                        >
-                        <input
-                          type="text"
-                          id="jobseekerLocation"
-                          class="form-control p-3 border border-secondary"
-                          formControlName="jobseekerLocation"
-                          placeholder="Mention the location you live in"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="jobseekerresume" class="form-label"
-                          >Upload Resume</label
-                        >
-                        <input
-                          class="form-control"
-                          type="file"
-                          id="jobseekerResume"
-                          #resumeInput
-                          (change)="fileSelect($event)"
-                        />
-                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="jobseekerpassword" class="form-label mt-2"
+                        >Password</label
+                      >
+                      <input
+                        type="password"
+                        id="jobseekerPassword"
+                        class="form-control p-3 border border-secondary"
+                        aria-describedby="passwordHelpBlock"
+                        formControlName="jobseekerPassword"
+                        placeholder="Enter Password"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label
+                        for="jobseekerconfirmpassword"
+                        class="form-label mt-2"
+                        >Confirm Password</label
+                      >
+                      <input
+                        type="password"
+                        id="jobseekerConfirmPassword"
+                        class="form-control p-3 border border-secondary"
+                        aria-describedby="passwordHelpBlock"
+                        formControlName="jobseekerConfirm_password"
+                        placeholder="Enter Confirm Password"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="jobseekerphonenumber" class="form-label mt-2"
+                        >Phone number</label
+                      >
+                      <input
+                        type="tel"
+                        class="form-control p-3 border border-secondary"
+                        id="jobseekerPhoneNumber"
+                        formControlName="jobseekerPhone_no"
+                        placeholder="Enter your phone number"
+                        minlength="10"
+                        maxlength="10"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="jobseekerlocation" class="form-label mt-2"
+                        >Location</label
+                      >
+                      <input
+                        type="text"
+                        id="jobseekerLocation"
+                        class="form-control p-3 border border-secondary"
+                        formControlName="jobseekerLocation"
+                        placeholder="Mention the location you live in"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="jobseekerresume" class="form-label"
+                        >Upload Resume</label
+                      >
+                      <input
+                        class="form-control"
+                        type="file"
+                        id="jobseekerResume"
+                        #resumeInput
+                        (change)="fileSelect($event, 'jobseeker')"
+                      />
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
                       <button
                         type="submit"
                         class="btn btn-primary"
@@ -223,9 +261,9 @@
                         Register
                       </button>
                     </div>
-                  </form>
-                </div>
-              
+                  </div>
+                </form>
+              </div>
 
               <div *ngIf="selectedForm === 'provider'">
                 <form [formGroup]="jobProviderForm">
@@ -237,7 +275,7 @@
                       type="name"
                       class="form-control p-3 border border-secondary"
                       id="jobproviderName"
-                      formControlName="company_name"
+                      formControlName="jobproviderName"
                       placeholder="Enter a Company name"
                     />
                     <div class="mb-3">
@@ -248,7 +286,7 @@
                         type="email"
                         class="form-control p-3 border border-secondary"
                         id="jobproviderEmail"
-                        formControlName="company_emailId"
+                        formControlName="jobproviderEmail_id"
                         placeholder="Tell us your Email ID"
                       />
                     </div>
@@ -261,7 +299,7 @@
                         id="jobproviderPassword"
                         class="form-control p-3 border border-secondary"
                         aria-describedby="passwordHelpBlock"
-                        formControlName="company_password"
+                        formControlName="jobproviderPassword"
                         placeholder="Enter Password"
                       />
                     </div>
@@ -276,7 +314,7 @@
                         id="jobproviderConfirmPassword"
                         class="form-control p-3 border border-secondary"
                         aria-describedby="passwordHelpBlock"
-                        formControlName="company_confirmPassword"
+                        formControlName="jobproviderConfirm_password"
                         placeholder="Enter Confirm Password"
                       />
                     </div>
@@ -288,7 +326,7 @@
                         type="tel"
                         class="form-control p-3 border border-secondary"
                         id="jobproviderPhoneNumber"
-                        formControlName="company_phoneNo"
+                        formControlName="jobproviderPhone_no"
                         placeholder="Enter your phone number"
                         minlength="10"
                         maxlength="10"
@@ -302,7 +340,7 @@
                         type="text"
                         id="jobproviderLocation"
                         class="form-control p-3 border border-secondary"
-                        formControlName="company_location"
+                        formControlName="jobproviderLocation"
                         placeholder="Mention the location you live in"
                       />
                     </div>
@@ -313,16 +351,27 @@
                       <input
                         class="form-control"
                         type="file"
-                        id="companyLogo"
+                        id="jobproviderLogo"
+                        #logoInput
+                        (change)="fileSelect($event, 'jobprovider')"
                       />
                     </div>
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      (click)="jobProviderRegister()"
-                    >
-                      Register
-                    </button>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        (click)="jobProviderRegister()"
+                      >
+                        Register
+                      </button>
+                    </div>
                   </div>
                 </form>
               </div>

@@ -6,14 +6,15 @@ import { JobListComponent } from './joblist/joblist.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FiltersubcategoryComponent } from './filtersubcategory/filtersubcategory.component';
 import { JobpostingComponent } from './jobposting/jobposting.component';
+import { HomeAuthGuard } from '../guards/home-auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent},
-  { path: 'job-list', component: JobListComponent },
+  { path: 'job-list', component: JobListComponent},
   { path: 'filtersubcategory/:categoryId', component: FiltersubcategoryComponent},
   { path: 'jobposting/:postingId', component: JobpostingComponent},
-  { path: 'dashboard', component : DashboardComponent}
+  { path: 'dashboard', component : DashboardComponent, canActivate: [HomeAuthGuard]}
 ];
 
 @NgModule({

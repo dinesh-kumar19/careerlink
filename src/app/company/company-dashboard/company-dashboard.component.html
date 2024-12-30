@@ -1,1 +1,22 @@
-<p>company-dashboard works!</p>
+<header>
+    <app-company-header></app-company-header>
+</header>
+<main>
+    <p>Company dashboard</p>
+    <section>
+        <div style="display: flex; justify-content: center;">
+        <div style="border: 1px solid black; border-radius: 20px; padding: 40px; width: fit-content;
+         background-color: rgb(195, 204, 201);">
+          <div class="mt-3" *ngIf="currentCompany">
+            <p>ID: {{currentCompany.company_id}}</p>
+            <p>User Name: {{currentCompany.company_name}} </p>
+            <p>Email: {{currentCompany.email_id}}</p>
+          </div>
+          <div *ngIf="!currentCompany">
+            <p>Loading Company details...</p>
+          </div>
+        </div>
+        </div>
+      </section>
+      
+</main>

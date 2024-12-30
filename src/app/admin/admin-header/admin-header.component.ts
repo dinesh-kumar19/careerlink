@@ -19,7 +19,7 @@ logout(): void{
   this.jobsService.logoutAdmin().subscribe(
     (response)=>{
       this.jobsService.setAdminLoggedIn(false);
-      this.jobsService.clearLoginState();
+      this.jobsService.clearAdminLoginState();
       this.isAdminLoggedIn = false;
       this.router.navigate(['/admin/CLadmin']);
     },
