@@ -8,12 +8,13 @@ import { PostJobComponent } from './post-job/post-job.component';
 import { AllApplicationsComponent } from './all-applications/all-applications.component';
 
 const routes: Routes = [
-  // { path: '', component: CompanyComponent },
+  { path: '', component: CompanyComponent },
   { path: 'companyDashboard', component: CompanyDashboardComponent, canActivate: [CompanyAuthGuard]},
   {path: 'company-profile', component: CompanyProfileComponent, canActivate: [CompanyAuthGuard]},
   { path: 'post-job', component: PostJobComponent, canActivate: [CompanyAuthGuard]},
   { path: 'applications', component: AllApplicationsComponent, canActivate: [CompanyAuthGuard]}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

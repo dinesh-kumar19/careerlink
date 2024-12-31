@@ -9,7 +9,6 @@ import { CompanyProfileComponent } from './company-profile/company-profile.compo
 import { PostJobComponent } from './post-job/post-job.component';
 import { AllApplicationsComponent } from './all-applications/all-applications.component';
 
-
 @NgModule({
   declarations: [
     CompanyComponent,
@@ -21,7 +20,7 @@ import { AllApplicationsComponent } from './all-applications/all-applications.co
   ],
   imports: [
     CommonModule,
-    CompanyRoutingModule
+    CompanyRoutingModule, 
   ]
 })
 export class CompanyModule { }
