@@ -10,53 +10,19 @@
     overflow: hidden;
 }
 .top_content_align{
-    padding: 180px 0 0 70px ;
+    padding: 170px 0 0 60px ;
     margin-left: 100px;
 }
 .top_content_1{
   font-weight: 700;
-  font-size: 40px;
-  font-size: calc(1.5rem + 1vw);/* Scalable font size */
+  font-size: calc(1.5rem + 1vw);
+  line-height: 1.4;
 }
-// -----------------------
-// newly added
-// .top_content button {
-//   margin-top: 20px;
-// }
-// .category-scroll {
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: center;
-// }
 .card:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transform: translateY(-5px);
   transition: all 0.3s ease;
 }
-// Mobile Responsiveness (About Cards):
-// .about_card img {
-//   max-width: 100%;
-//   height: auto;
-// }
-// Contact Us Section:
-// Center-align the text and button on smaller screens:
-
-// .contact-section {
-//   text-align: center;
-// }
-
-// ------------------------
-// .about_card{
-//   border: 1px solid whitesmoke;
-//   border-radius: 15px;
-//   background-color: rgb(215, 225, 215);
-//   padding: 10px;
-// }
-// .aboutcard__full_style:hover{
-//   background-color: rgb(198, 210, 198);
-// }
-
-// card image job icon
 .job-icon{
   border: 1px solid;
   border: none;
@@ -64,17 +30,39 @@
   background-color: white;
   padding: 15px;
 }
-// job category text hover
 .category-style:hover{
   cursor: pointer;
   color: green;
 }
-
+.category-style {
+  transition: color 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+}
+.job-icon {
+  border-radius: 50%; 
+  background-color: #fff;
+  padding: 15px;
+  border: 2px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.job_cate_img:hover{
+  background-color: rgb(207, 205, 205);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 @media only screen and (max-width: 768px) {
-  .top_content{
+.top_content{
     background-image: none;
-    background-color: #eeefef;;
+    background-color: #eeefef;
+    height: auto;
+}
+.top-secondline{
+  font-size: 12px;
+  line-height: 1.4;
 }
 .top_content_align{
   margin-top: 20px;
@@ -82,42 +70,12 @@
   margin-left: 0;
 }
 .top_content_1 {
-  font-size: 24px; 
+  font-size: 45px; 
   text-align: center;
   padding-bottom: 40px;
 }
 }
-// category hover
-.select_category:hover{
-  cursor: pointer;
-  color: blue;
-}
-.job-type{
-  border: 1px solid rgb(32, 32, 158);
-  border-radius: 10px;
-  width: 90px;
-  margin-left: 35px;
-  background-color: rgb(76, 76, 120);
-  color: whitesmoke;
-}
-.job-apply{
-  font-family: cursive;
-}
-.job-apply:hover{
-  background-color: blue;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(1, 1, 1, 0.19);
-}
-// Job category img style
-.job_cate_img{
-  border: 1px solid whitesmoke;
-  background-color: white;
-  border-radius: 20px;
-  padding: 12px;
-}
-.job_cate_img:hover{
-  background-color: rgb(207, 205, 205);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+
 
 
 

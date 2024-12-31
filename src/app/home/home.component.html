@@ -12,7 +12,7 @@
             class="top_content_1"
             data-aos="fade-up"
             data-aos-duration="1000"
-            style="font-size: 45px"
+            
           >
             Make The Best Move to Choose Your <br />
             <span
@@ -25,6 +25,7 @@
             data-aos="fade-right"
             data-aos-duration="1000"
             style="font-size: 20px"
+            class="top-secondline"
           >
             Find Jobs, Employment & Career Opportunities. Some or the companies
             we've helped recruit excellent applicants over the years.
@@ -32,7 +33,7 @@
           <div>
             <button
               type="button"
-              class="btn btn-success btn-lg px-5 mt-5 fw-bolder"
+              class="btn btn-success  btn-lg px-5 mt-5 fw-bolder search-btn"
               (click)="searchJob()"
             >
               Search A Job
@@ -44,7 +45,7 @@
   </section>
 
   <section>
-    <div class="container-fluid">
+    <div class="container-fluid filter-align">
       <form>
         <div
           class="row align-items-center border p-4 text-white"
@@ -92,8 +93,8 @@
   <section>
     <div class="container mt-5">
       <div class="text-center">
-        <h2>Popular Job Categories</h2>
-        <p>
+        <h1>Popular Job Categories</h1>
+        <p style="font-size: 18px;">
           Search all the open positions on the web. Get your own personalized
           salary estimate. Read reviews on over lots of companies worldwide.
         </p>
@@ -117,12 +118,12 @@
                 />
 
                 <a style="text-decoration: none"
-                  ><h5
+                  ><h2
                     class="card-title text-dark mx-3 category-style"
                     (click)="viewSubcategories(category.jobcategory_id)"
                   >
                     {{ category.categoryname }}
-                  </h5></a
+                  </h2></a
                 >
               </div>
             </div>
