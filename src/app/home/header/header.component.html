@@ -1,57 +1,97 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: whitesmoke">
-    <div class="container-fluid">
-      <a class="navbar-brand">
+<header class>
+  <nav class="navbar">
+    <div class="left-section" *ngIf="isLargeScreen">
+      <img src="/assets/nav_icon.png" alt="Logo" class="project-icon" />
+      <span class="project-name">CareerLink</span>
+    </div>
+
+    <div class="right-section" *ngIf="isLargeScreen">
+      <!-- <ul class="navbar-nav"> -->
+        <li class="nav-item fs-5" style="list-style: none;">
+      <a routerLink="/" class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item fs-5" style="list-style: none;" *ngIf="isLoggedIn">
+      <a routerLink="/home/dashboard" class="nav-link">Dashboard</a>
+      </li>
+      <li class="nav-item fs-5" style="list-style: none;" *ngIf="!isLoggedIn && !isCompanyLoggedIn">
+        <a routerLink="/home/login" class="nav-link">Login/Register</a>
+        </li>
+        <li class="nav-item fs-5" style="list-style: none;" *ngIf="isCompanyLoggedIn">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/company/companyDetails"
+            >company Dashboard</a
+          >
+        </li>
+        <li class="nav-item" style="list-style: none;" *ngIf="isLoggedIn || isCompanyLoggedIn">
+      <div class="profile-container">
         <img
-          src="/assets/nav_icon.png"
-          alt="Logo"
-          width="50"
-          height="44"
-          class="d-inline-block align-text-top mx-2"
+          src="/assets/profile/profile_pic.png"
+          alt="Profile"
+          class="user-pic"
+          (click)="toggleProfile()"
         />
-        <span class="fs-3 fw-bolder">CareerLink</span>
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
+        <div class="profile-dropdown" *ngIf="showProfileMenu">
+          <div class="profile-info">
+            <img src="/assets/profile/profile_pic.png" alt="Profile" />
+            <p>User Name</p>
+          </div>
+          <hr />
+          <a routerLink="/profile" class="d-flex ">
+           <p>profile</p> 
+           <span>></span>
+
+          </a>
+          <a (click)="logout()" class="d-flex">
+            <p>Logout</p>
+            <span>></span>
+
+          </a>
+        </div>
+      </div>
+      </li>
+      <!-- </ul> -->
+    </div>
+
+    <!-- Mobile View -->
+    <div class="mobile-header" *ngIf="!isLargeScreen">
+      <button (click)="toggleSidebar()" class="toggle-btn">
+        &#9776;
       </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul
-          class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll"
-          style="--bs-scroll-height: 100px"
-        >
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/">Home</a>
-          </li>
-          <!-- Show Login/Register if not logged in -->
-          <li class="nav-item" *ngIf="!isLoggedIn">
-            <a class="nav-link" aria-current="page" routerLink="/home/login"
-              >Login/Register</a
-            >
-          </li>
-          <!-- Show Dashboard and Logout if logged in -->
-          <li class="nav-item" *ngIf="isLoggedIn">
-            <a class="nav-link" aria-current="page" routerLink="/home/dashboard"
-              >Dashboard</a
-            >
-          </li>
-          <li class="nav-item" *ngIf="isLoggedIn">
-            <a
-              class="nav-link logout-style"
-              aria-current="page"
-              (click)="logout()"
-              >Logout</a
-            >
-          </li>
-        </ul>
+      <div class="project-info">
+        <img src="/assets/nav_icon.png" alt="Logo" class="project-icon" />
+        <span class="project-name">CareerLink</span>
       </div>
     </div>
   </nav>
 </header>
+
+<!-- Sidebar for Mobile -->
+<div class="sidebar" [class.open]="showSidebar" *ngIf="!isLargeScreen">
+  <button class="close-btn" (click)="toggleSidebar()">&times;</button>
+  <div class="sidebar-header">
+    <div class="profile-container">
+      <img
+        src="/assets/profile/profile_pic.png"
+        alt="Profile"
+        class="user-pic"
+        (click)="toggleProfile()"
+      />
+      <div class="profile-dropdown" *ngIf="showProfileMenu">
+        <div class="profile-info">
+          <img src="/assets/profile/profile_pic.png" alt="Profile" />
+          <p>User Name</p>
+        </div>
+        <hr />
+        <a routerLink="/profile">Profile</a>
+        <a (click)="logout()">Logout</a>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar-links">
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/settings">Settings</a>
+    <a (click)="logout()">Logout</a>
+  </div>
+</div>

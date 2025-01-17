@@ -9,13 +9,19 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminDetailsComponent } from './admin-details/admin-details.component';
+import { JobApplicationsComponent } from './job-applications/job-applications.component';
+import { CompanyPostjobsComponent } from './company-postjobs/company-postjobs.component';
 
 @NgModule({
   declarations: [
     AdminComponent,
     AdminDashboardComponent,
     AdminHeaderComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    AdminDetailsComponent,
+    JobApplicationsComponent,
+    CompanyPostjobsComponent
   ],
   imports: [
     CommonModule,

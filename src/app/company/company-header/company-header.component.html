@@ -28,10 +28,17 @@
             style="--bs-scroll-height: 100px"
           >
             <li class="nav-item" *ngIf="isCompanyLoggedIn">
-              <a class="nav-link" aria-current="page" routerLink="admin/adminDashboard"
-                >Company Dashboard</a
+              <a class="nav-link" aria-current="page" routerLink="home/home"
+                >Home</a
               >
             </li>
+            <!-- <li class="nav-item" *ngIf="isCompanyLoggedIn">              
+              <a class="nav-link" aria-current="page" routerLink="company/companyDashboard"
+                ><i class='bx bx-user-circle'></i>Dashboard</a
+              >
+            </li> -->
+
+
             <li class="nav-item" *ngIf="isCompanyLoggedIn">
               <a
                 class="nav-link logout-style"
@@ -40,6 +47,13 @@
                 >Logout</a
               >
             </li>
+            <!-- <a class="nav-link" (click)="logout()">
+              <span class="icon">
+                <i class='bx bx-log-out'></i>
+              </span>
+              <span class="description">Logout</span>
+            </a> -->
+            
           </ul>
         </div>
       </div>

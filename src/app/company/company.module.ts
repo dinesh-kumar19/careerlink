@@ -8,6 +8,8 @@ import { CompanyHeaderComponent } from './company-header/company-header.componen
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
 import { PostJobComponent } from './post-job/post-job.component';
 import { AllApplicationsComponent } from './all-applications/all-applications.component';
+import { CompanyDetailsComponent } from './company-details/company-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { AllApplicationsComponent } from './all-applications/all-applications.co
     CompanyHeaderComponent,
     CompanyProfileComponent,
     PostJobComponent,
-    AllApplicationsComponent
+    AllApplicationsComponent,
+    CompanyDetailsComponent
   ],
   imports: [
     CommonModule,
     CompanyRoutingModule, 
+    ReactiveFormsModule
   ]
 })
 export class CompanyModule { }

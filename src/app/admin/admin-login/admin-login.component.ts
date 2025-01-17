@@ -45,7 +45,7 @@ export class AdminLoginComponent implements OnInit {
         alert('Admin Login Successful');
         this.JobsService.setAdminLoggedIn(true);
         //  document.cookie = `admin_authToken=${response.admin.token}; path=/; secure; SameSite=Strict`;
-        this.router.navigate(['/admin/adminDashboard']);
+        this.router.navigate(['/admin/admin-details']);
         this.adminLoginForm.reset();
        } else {
         alert('Invalid email or password.');

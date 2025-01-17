@@ -14,7 +14,7 @@ export class CompanyDashboardComponent implements OnInit {
   constructor(private http : HttpClient, private jobsService: JobsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.jobsService.getCurrentCmpany().subscribe(
+    this.jobsService.getCurrentCompany().subscribe(
       (response: any) => {
         this.currentCompany = response.company;
       },

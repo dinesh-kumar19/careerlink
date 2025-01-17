@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/dashboard'])
     }
     if(this.JobsService.isCompanyLoggedIn()){
-      this.router.navigate(['/company/companyDashboard']);
+      this.router.navigate(['/company/companyDetails']);
     }
   }
   fileSelect(event: any, formType: string): void{
@@ -184,7 +184,7 @@ export class LoginComponent implements OnInit {
         if (response.success) {
           alert('Company Login Successful');
           this.JobsService.setCompanyLoggedIn(true);
-          this.router.navigate(['/company/companyDashboard']);
+          this.router.navigate(['/company/companyDetails']);
           this.loginForm.reset();
         } else {
           alert('Invalid email or password.');
@@ -235,9 +235,6 @@ export class LoginComponent implements OnInit {
       if (this.logoInput) {
         this.logoInput.nativeElement.value = '';
       }
-    }
-    
-    
-   
+    }   
   }
   

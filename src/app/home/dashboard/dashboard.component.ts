@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
     this.jobsService.getCurrentuser().subscribe(
       (response: any) => {
         this.currentUser = response.user;
+        console.log(this.currentUser.id);
       },
       (error) => {
         console.log('Failed to fetch user data', error);

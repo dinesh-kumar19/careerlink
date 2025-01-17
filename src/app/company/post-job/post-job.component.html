@@ -1,12 +1,132 @@
-<h2>Post a Job</h2>
-<form>
-  <div>
-    <label>Job Title:</label>
-    <input type="text" />
+<form [formGroup]="jobForm" class="row g-3">
+  <div class="col-md-4">
+    <label for="selectCategory">select category:</label>
+      <select formControlName="categoryname" class="form-select" id="validationCustom04" required>
+      <option selected disabled value="">--select category--</option>
+      <option>Software Development & IT</option>
+      <option>Marketing & Sales</option>
+      <option>Design & Creative</option>
+      <option>Business & Management</option>
+      <option>Healthcare</option>
+      <option>Education</option>
+      <option>Engineering</option>
+      <option>Customer Service</option>
+      <option>Finance & Accounting</option>
+      <option>Legal</option>
+      <option>Human Resources</option>
+      <option>Construction & Real Estate</option>
+      <option>Logistics & Supply Chain</option>
+      <option>Hospitality & Travel</option>
+      <option>Manufacturing</option>
+      <option>other</option>
+    </select>
   </div>
-  <div>
-    <label>Description:</label>
-    <textarea></textarea>
+  <div class="col-md-4">
+    
   </div>
-  <button type="submit">Submit</button>
+  <!-- <div class="col-md-4">
+    <label for="">hi</label>
+  </div>
+  <div class="col-md-4">
+    <label for="">hello</label>
+  </div> -->
+  <hr>
+  <!-- company Details -->
+  <h2>Company Details:</h2>
+  <div class="row">
+    <div class="col-md-3">
+      <label for="">Company Name:</label>
+      <input type="text" class="form-control" id="" formControlName="companyname">
+    </div>
+    <!-- <div class="col-md-3">
+      <label for="">Company Logo:</label>
+      <input type="file" class="form-control" id="" formControlName="companyLogo">
+    </div> -->
+    <div class="col-md-3">
+      <label for="">Company Description:</label>
+      <input type="text" class="form-control" id="" formControlName="companyDescription">
+    </div>
+    <div class="col-md-3">
+      <label for="">Website URL:</label>
+      <input type="text" class="form-control" id="" formControlName="websiteUrl">
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col-md-3">
+      <label for="">Location:</label>
+      <input type="text" class="form-control" id="">
+    </div>
+    <div class="col-md-3">
+      <label for="">Number of employees: </label>
+      <select class="form-select">
+      <option selected disabled value="">--size--</option>
+      <option>1 to 49</option>
+      <option>50 to 149</option>
+      <option>150 to 249</option>
+      <option>250 to 499</option>
+      <option>500 to 749</option>
+      <option>750 to 999</option>
+      <option>1000+</option>
+      </select>
+    </div>
+  </div> -->
+  <!-- job details -->
+   <h2>Job Details:</h2>
+   <div class="row">
+   <div class="col-md-3">
+   <label for="">Job Title:</label>
+   <input type="text" class="form-control" formControlName="jobtitle">
+   </div>
+   <div class="col-md-3">
+    <label for="">Employment Type:</label>
+    <input type="text" class="form-control" formControlName="employeetype">
+    </div>
+    <div class="col-md-3">
+      <label for="">Salary Range:</label>
+      <input type="text" class="form-control" formControlName="salary">
+    </div>
+    <div class="col-md-3">
+      <label for="">Location:</label>
+      <input type="text" class="form-control" formControlName="location">
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <label for="">Experience Required:</label>
+        <input type="text" class="form-control" formControlName="experience">
+        </div>
+        <div class="col-md-3">
+         <label for="">Qualifications:</label>
+         <input type="text" class="form-control" formControlName="qualifications">
+         </div>
+         <div class="col-md-3">
+           <label for="">Skills Required</label>
+           <input type="text" class="form-control" formControlName="skillsrequired">
+         </div>
+         <div class="col-md-3">
+           <label for="">Job Description</label>
+           <input type="text" class="form-control" formControlName="jobdescription">
+         </div>     
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <label for="">Key Responsibilities</label>
+        <input type="text" class="form-control" formControlName="keyresponse_1">
+        </div>
+        <div class="col-md-3">
+         <label for="">Application Deadline</label>
+         <input type="text" class="form-control" formControlName="applicationDeadline">
+         </div>
+         <div class="col-md-3">
+           <label for="">Benefits:</label>
+           <input type="text" class="form-control">
+         </div>
+         <!-- <div class="col-md-3">
+           <label for="">Email:</label>
+           <input type="text" class="form-control">
+         </div>      -->
+    </div>
+    <div class="col-12">
+    <button class="btn btn-success" type="submit" [disabled]="jobForm.invalid" (click)="postJob()">Submit form</button>
+  </div>
 </form>

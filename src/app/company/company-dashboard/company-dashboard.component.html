@@ -1,6 +1,4 @@
-<header>
-    <app-company-header></app-company-header>
-</header>
+
 <main>
     <!-- <p>Company dashboard</p>
     <section>
@@ -20,37 +18,21 @@
       </section> -->
 
       <!-- Dashboard design -->
-      <!-- <div class="sidebar">
-        <nav class="nav flex-column">
-          <ul>
-            <li>
-              <a class="nav-link" [routerLinkActive]="['active']" routerLink="/company/companyDashboard">
-                <span class="icon">
-                  <i class='bx bxs-dashboard'></i>
-                </span>
-                
-                <span class="description">Dashboard</span>
-                </a>
-            </li>
-            <li>              
-              <a class="nav-link" [routerLinkActive]="['active']" routerLink="/company/post-job">
-                <span class="icon">
-                  <i class='bx bx-send'></i>
-                </span>
-                
-                <span class="description">Apply For A Job</span>
-                </a>
-            </li>
-            <li>
-              <a class="nav-link" [routerLinkActive]="['active']" routerLink="/company/applications">
-                <span class="icon">
-                  <i class='bx bx-spreadsheet '></i>
-                </span>
-                
-                <span class="description">All Applications</span>
-                </a>
-            </li>
-            <li>
+       
+         <div class="mt-3" *ngIf="currentCompany">
+          <p>ID: {{currentCompany.company_id}}</p>
+          <p>Company Name: {{currentCompany.company_name}} </p>
+          <p>Email: {{currentCompany.email_id}}</p>
+        </div>
+        <div *ngIf="!currentCompany">
+          <p>Loading Company details...</p>
+        </div>
+      
+      
+
+</main>
+
+<!-- <li>
               <a class="nav-link" [routerLinkActive]="['active']" routerLink="." data-bs-toggle="collapse" data-bs-target="#submenu" aria-expanded="false" aria-controls="submenu">
                 <span class="icon">
                   <i class='bx bx-cube'></i>
@@ -78,33 +60,4 @@
                   </span>
                 </a>
                </div>
-            </li>
-            <li>
-              <a class="nav-link" [routerLinkActive]="['active']" routerLink="#">
-                <span class="icon">
-                  <i class='bx bx-log-in-circle'></i>
-                </span>
-                
-                <span class="description">Logout</span>
-                </a>
-            </li>
-          </ul>
-
-        </nav>
-      </div> -->
-
-      <!-- <section class="main-content"> -->
-        <!-- <div class="mt-3" *ngIf="currentCompany">
-          <p>ID: {{currentCompany.company_id}}</p>
-          <p>User Name: {{currentCompany.company_name}} </p>
-          <p>Email: {{currentCompany.email_id}}</p>
-        </div>
-        <div *ngIf="!currentCompany">
-          <p>Loading Company details...</p>
-        </div> -->
-        <!-- <router-outlet></router-outlet> -->
-        
-      <!-- </section> -->
-      
-
-</main>
+            </li> -->
