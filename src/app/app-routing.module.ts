@@ -13,6 +13,7 @@ const routes: Routes = [
     path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule) 
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },// Redirect to Home by default
+  { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
   { path: '**', redirectTo: 'home' }// Handle undefined routes
 ];
 

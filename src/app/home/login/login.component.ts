@@ -161,7 +161,7 @@ export class LoginComponent implements OnInit {
           // this.toastr.success("Login done","success");
           alert("Login Successful");
           this.JobsService.setLoggedIn(true);
-          this.router.navigate(['/home/dashboard']);
+          this.router.navigate(['/user/user-dashboard']);
           this.loginForm.reset();
         }
         else {
