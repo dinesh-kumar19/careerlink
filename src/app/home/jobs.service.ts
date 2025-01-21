@@ -106,4 +106,7 @@ export class JobsService {
   getApplicationsByCompany(company_id: number): Observable<any>{
     return this.http.post('http://localhost:3000/api/jobpostings/getApplicationsByCompany',{company_id});
   }
+  getApplicationsByUser(user_id: number): Observable<any>{
+    return this.http.post('http://localhost:3000/api/jobpostings/getApplicationsByUser',{user_id});
+  }
 }

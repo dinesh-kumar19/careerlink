@@ -38,8 +38,6 @@ export class AllApplicationsComponent implements OnInit {
         if (res.success){
           this.userAppliedJobs = res.data;
           // console.log("user applied jobs: ", this.userAppliedJobs);
-        }else if (this.userAppliedJobs.length < 0){
-          console.log("empty");
         }
         else{
           console.error("Failed to fetch user applied jobs");
