@@ -37,7 +37,7 @@ export class JobpostingComponent implements OnInit {
           this.currentUser.id = response.data.id;
           // console.log("user register : ",this.currentUser.id);
         }else{
-          console.error("FAiled to fetch current user");
+          console.error("Failed to fetch current user");
         }
       },
       // (error) => {

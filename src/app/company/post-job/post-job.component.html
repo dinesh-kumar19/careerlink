@@ -22,33 +22,24 @@
     </select>
   </div>
   <div class="col-md-4">
-    
+    <label for="categoryImage">category Image:</label>
+    <input type="file" class="form-control" id="categoryImage" (change)="onFileSelected($event)">
   </div>
-  <!-- <div class="col-md-4">
-    <label for="">hi</label>
-  </div>
-  <div class="col-md-4">
-    <label for="">hello</label>
-  </div> -->
   <hr>
   <!-- company Details -->
   <h2>Company Details:</h2>
   <div class="row">
     <div class="col-md-3">
       <label for="">Company Name:</label>
-      <input type="text" class="form-control" id="" formControlName="companyname">
+      <input type="text" class="form-control" id="" formControlName="companyname" autofocus>
     </div>
-    <!-- <div class="col-md-3">
-      <label for="">Company Logo:</label>
-      <input type="file" class="form-control" id="" formControlName="companyLogo">
-    </div> -->
     <div class="col-md-3">
       <label for="">Company Description:</label>
-      <input type="text" class="form-control" id="" formControlName="companyDescription">
+      <input type="text" class="form-control" id="" formControlName="companyDescription" autofocus>
     </div>
     <div class="col-md-3">
       <label for="">Website URL:</label>
-      <input type="text" class="form-control" id="" formControlName="websiteUrl">
+      <input type="text" class="form-control" id="" formControlName="websiteUrl" autofocus>
     </div>
   </div>
   <!-- <div class="row">
@@ -75,51 +66,57 @@
    <div class="row">
    <div class="col-md-3">
    <label for="">Job Title:</label>
-   <input type="text" class="form-control" formControlName="jobtitle">
+   <input type="text" class="form-control" formControlName="jobtitle" autofocus>
    </div>
    <div class="col-md-3">
+    <label for="">Job Logo:</label>
+    <input type="file" class="form-control" id="" (change)="onJobLogoSelected($event)">
+  </div>
+   <div class="col-md-3">
     <label for="">Employment Type:</label>
-    <input type="text" class="form-control" formControlName="employeetype">
+    <input type="text" class="form-control" formControlName="employeetype" autofocus>
     </div>
     <div class="col-md-3">
       <label for="">Salary Range:</label>
-      <input type="text" class="form-control" formControlName="salary">
+      <input type="text" class="form-control" formControlName="salary" autofocus>
     </div>
+  </div>
+  <div class="row">
     <div class="col-md-3">
       <label for="">Location:</label>
-      <input type="text" class="form-control" formControlName="location">
+      <input type="text" class="form-control" formControlName="location" autofocus>
     </div>
-    </div>
-    <div class="row">
+    
+    
       <div class="col-md-3">
         <label for="">Experience Required:</label>
-        <input type="text" class="form-control" formControlName="experience">
+        <input type="text" class="form-control" formControlName="experience" autofocus>
         </div>
         <div class="col-md-3">
          <label for="">Qualifications:</label>
-         <input type="text" class="form-control" formControlName="qualifications">
+         <input type="text" class="form-control" formControlName="qualifications" autofocus>
          </div>
          <div class="col-md-3">
            <label for="">Skills Required</label>
-           <input type="text" class="form-control" formControlName="skillsrequired">
+           <input type="text" class="form-control" formControlName="skillsrequired" autofocus>
          </div>
+         </div>
+         <div class="row">
          <div class="col-md-3">
            <label for="">Job Description</label>
-           <input type="text" class="form-control" formControlName="jobdescription">
+           <input type="text" class="form-control" formControlName="jobdescription" autofocus>
          </div>     
-    </div>
-    <div class="row">
       <div class="col-md-3">
         <label for="">Key Responsibilities</label>
-        <input type="text" class="form-control" formControlName="keyresponse_1">
+        <input type="text" class="form-control" formControlName="keyresponse_1" autofocus>
         </div>
         <div class="col-md-3">
          <label for="">Application Deadline</label>
-         <input type="text" class="form-control" formControlName="applicationDeadline">
+         <input type="text" class="form-control" formControlName="applicationDeadline" autofocus>
          </div>
          <div class="col-md-3">
            <label for="">Benefits:</label>
-           <input type="text" class="form-control">
+           <input type="text" class="form-control" autofocus>
          </div>
          <!-- <div class="col-md-3">
            <label for="">Email:</label>

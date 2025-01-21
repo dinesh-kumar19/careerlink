@@ -1,1 +1,42 @@
-<p>all-applications works!</p>
+<div class="container">
+  <section>
+    <h2 class="text-center">APPLIED JOBS</h2>
+    <div *ngIf="userAppliedJobs.length === 0" class="text-center mt-4">
+      <p>No job applications found.</p>
+    </div>
+    <div class="container mt-5 table-responsive">
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+      <table class="table table-striped" *ngIf="userAppliedJobs.length > 0">
+        <thead>
+          <tr>
+            <th>S.NO</th>
+            <th>Job Title</th>
+            <th>Applicant Name</th>
+            <th>Applicant Email</th>
+            <th>Application Date</th>
+            <th>Resume</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let job of userAppliedJobs; let i = index">
+          <tr>
+            <td>{{ i + 1 }}</td>
+            <td>{{ job.jobtitle }}</td>
+            <td>{{ job.name }}</td>
+            <td>{{ job.email_id }}</td>
+            <td>{{ job.application_date }}</td>
+            <td>{{ job.resume_path }}</td>
+            <!-- <td><button class="btn btn-dark">pending</button></td> -->
+            <td>
+              <button type="button" class="btn btn-success">Approve</button
+              >&nbsp;
+              <button type="button" class="btn btn-danger">Reject</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

@@ -3,9 +3,19 @@
   </header>
 
   <section>
+    <!-- <p style="margin-top: 100px;"></p> -->
+    <div style="margin-top: 60px;">
     <div class="card mb-3 job-card mt-4">
         <div *ngFor="let job of jobPosting">
           <div class="card-body mx-3 mx-md-5">
+            <img
+                  [src]="'http://localhost:3000/uploads/jobLogo/' + job.imageUrl"
+                  alt="CategoryImage"
+                  width="75"
+                  height="75"
+                  class="job-icon mb-3"
+                />
+
             <h5 class="select_category">{{ job.jobtitle }}</h5>
             <div class="d-flex flex-wrap my-3 text-dark-emphasis">
               <p class="mx-2"><i class="fa-solid fa-briefcase mx-2"></i>{{job.companyname}}</p>
@@ -151,6 +161,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
 
   </section>

@@ -10,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PostJobComponent implements OnInit {
   jobForm! : FormGroup;
+  selectedFile: File | null = null;
+  jobLogoFile: File | null = null;
 
   constructor(private http:HttpClient, private JobsService : JobsService) { }
 
@@ -18,7 +20,6 @@ export class PostJobComponent implements OnInit {
       {
         categoryname: new FormControl('', [Validators.required]),
         companyname:new FormControl('', [Validators.required]),
-        // companyLogo: new FormControl('', [Validators.required]),
         companyDescription: new FormControl('', [Validators.required]),
         websiteUrl: new FormControl('', [Validators.required]),
         jobtitle: new FormControl('', [Validators.required]),
@@ -35,12 +36,48 @@ export class PostJobComponent implements OnInit {
       }
     );
   }
-  postJob(){
-    if(this.jobForm.valid) {
+  onFileSelected(event : Event): void {
+    const fileInput = event.target as HTMLInputElement;
+    if(fileInput.files && fileInput.files[0]){
+      this.selectedFile = fileInput.files[0];
+      // console.log('Selected file:', this.selectedFile);
+    }
+  }
+  onJobLogoSelected(event: any): void {
+    const file = event.target.files[0];
+    if(file){
+      this.jobLogoFile = file;
+    }
+  }
+  postJob(): void{
+    if(this.jobForm.valid){
+      const formData = new FormData();
       const jobData = this.jobForm.value;
-      this.JobsService.postJobData(jobData)
+      
+      formData.append('categoryname', jobData.categoryname);
+      formData.append('companyname', jobData.companyname);
+      formData.append('companyDescription', jobData.companyDescription);
+      formData.append('websiteUrl', jobData.websiteUrl);
+      formData.append('jobtitle', jobData.jobtitle);
+      formData.append('employeetype', jobData.employeetype);
+      formData.append('salary', jobData.salary);
+      formData.append('location', jobData.location);
+      formData.append('experience', jobData.experience);
+      formData.append('qualifications', jobData.qualifications);
+      formData.append('skillsrequired', jobData.skillsrequired);
+      formData.append('jobdescription', jobData.jobdescription);
+      formData.append('keyresponse_1', jobData.keyresponse_1);
+      formData.append('applicationDeadline', jobData.applicationDeadline);
+      if(this.selectedFile){
+        formData.append('category_imageUrl', this.selectedFile);
+      }
+      if(this.jobLogoFile){
+        formData.append('job_Logo',this.jobLogoFile);
+      }
+      // console.log('FormData being sent:', formData);
+      this.JobsService.postJobData(formData)
       .subscribe(
-        response => {
+        (response) => {
           // console.log("Job Posted Successfully", response);
           alert("Job posted successfully");
         },
@@ -54,8 +91,9 @@ export class PostJobComponent implements OnInit {
         }
 
       );
-    }else{
-      console.log("Form is invalid");
+     } else{
+      console.log("Form is invalid",this.jobForm.errors);
     }
   }
-}
+    }
+    

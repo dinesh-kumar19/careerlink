@@ -1,38 +1,40 @@
 <section>
-    <h2 class="text-center">APPLIED JOBS</h2>
-    <div class="container mt-5 table-responsive">
-        <div *ngIf="errorMessage" class="alert alert-danger">
-            {{ errorMessage }}
-          </div>
-      <table *ngIf="appliedJobs.length > 0" class="table table-striped">
-        <thead>
-          <tr>
-            <th>S.NO</th>
-            <th>User Name</th>
-            <th>Company Name</th>
-            <th>Job Title</th>
-            <th>Date / Time</th>
-            <th>Status</th>
-            <!-- <th>Qualification</th>
+  <h2 class="text-center">APPLIED JOBS</h2>
+  <div *ngIf="appliedJobs.length === 0" class="text-center mt-4">
+    <p>No Job Applications found.</p>
+  </div>
+  <div class="container mt-5 table-responsive">
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+    <table *ngIf="appliedJobs.length > 0" class="table table-striped">
+      <thead>
+        <tr>
+          <th>S.NO</th>
+          <th>User Name</th>
+          <th>Company Name</th>
+          <th>Job Title</th>
+          <th>Date / Time</th>
+          <th>Status</th>
+          <!-- <th>Qualification</th>
             <th>Company Name</th>
             <th>Job Title</th> -->
-            
-          </tr>
-        </thead>
-        <tbody *ngFor="let application of appliedJobs; let i = index">
-          <tr>
-            <td>{{i + 1}}</td>
-            <td>{{application.name}}</td>
-            <td>{{application.company_name}}</td>
-            <td>{{application.jobtitle}}</td>
-            <td>{{application.application_date}}</td>
-            <!-- <td></td> -->
-            <td>
-              <button type="button" class="btn btn-success">Approve</button>&nbsp;
-              <button type="button" class="btn btn-danger">Reject</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+        </tr>
+      </thead>
+      <tbody *ngFor="let application of appliedJobs; let i = index">
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ application.name }}</td>
+          <td>{{ application.company_name }}</td>
+          <td>{{ application.jobtitle }}</td>
+          <td>{{ application.application_date }}</td>
+          <!-- <td></td> -->
+          <td>
+            <button type="button" class="btn btn-success">Approve</button>&nbsp;
+            <button type="button" class="btn btn-danger">Reject</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

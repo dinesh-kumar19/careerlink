@@ -91,7 +91,7 @@ export class JobsService {
     localStorage.removeItem('admin_authToken');
   }
   // post a job 
-  postJobData(jobData: any): Observable<any> {
+  postJobData(jobData: FormData): Observable<any> {
     return this.http.post('http://localhost:3000/api/jobpostings/post-job', jobData);
   }
   // apply for job
@@ -102,5 +102,8 @@ export class JobsService {
   // get applied jobs to show in admin
   getAppliedJobs(): Observable<any>{
     return this.http.get('http://localhost:3000/api/jobpostings/getApplications');
+  }
+  getApplicationsByCompany(company_id: number): Observable<any>{
+    return this.http.post('http://localhost:3000/api/jobpostings/getApplicationsByCompany',{company_id});
   }
 }
