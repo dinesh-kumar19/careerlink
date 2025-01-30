@@ -12,6 +12,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDetailsComponent } from './admin-details/admin-details.component';
 import { JobApplicationsComponent } from './job-applications/job-applications.component';
 import { CompanyPostjobsComponent } from './company-postjobs/company-postjobs.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CompanyPostjobsComponent } from './company-postjobs/company-postjobs.co
     HttpClientModule,
     FormsModule
   ],
+  providers: [DatePipe],
   exports: [
     AdminLoginComponent  
   ]

@@ -21,7 +21,7 @@ export class PostJobComponent implements OnInit {
         categoryname: new FormControl('', [Validators.required]),
         companyname:new FormControl('', [Validators.required]),
         companyDescription: new FormControl('', [Validators.required]),
-        websiteUrl: new FormControl('', [Validators.required]),
+        company_website: new FormControl('', [Validators.required]),
         jobtitle: new FormControl('', [Validators.required]),
         employeetype:new FormControl('', [Validators.required]),
         salary:new FormControl('', [Validators.required]),
@@ -32,6 +32,7 @@ export class PostJobComponent implements OnInit {
         jobdescription:new FormControl('', [Validators.required]),
         keyresponse_1:new FormControl('', [Validators.required]),
         applicationDeadline:new FormControl('', [Validators.required]),
+        vacancy_required:new FormControl('',[Validators.required]),
 
       }
     );
@@ -57,7 +58,7 @@ export class PostJobComponent implements OnInit {
       formData.append('categoryname', jobData.categoryname);
       formData.append('companyname', jobData.companyname);
       formData.append('companyDescription', jobData.companyDescription);
-      formData.append('websiteUrl', jobData.websiteUrl);
+      formData.append('company_website', jobData.company_website);
       formData.append('jobtitle', jobData.jobtitle);
       formData.append('employeetype', jobData.employeetype);
       formData.append('salary', jobData.salary);
@@ -68,6 +69,7 @@ export class PostJobComponent implements OnInit {
       formData.append('jobdescription', jobData.jobdescription);
       formData.append('keyresponse_1', jobData.keyresponse_1);
       formData.append('applicationDeadline', jobData.applicationDeadline);
+      formData.append('vacancy_required',jobData.vacancy_required);
       if(this.selectedFile){
         formData.append('category_imageUrl', this.selectedFile);
       }

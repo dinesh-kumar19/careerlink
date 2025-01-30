@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JobsService } from '../jobs.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-job-list',
@@ -16,7 +17,7 @@ export class JobListComponent implements OnInit {
   currentPage: number = 1;
   totalPages: number = 1;  
   
-  constructor(private route: ActivatedRoute, private jobsService: JobsService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private jobsService: JobsService, private router: Router, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -29,6 +30,9 @@ export class JobListComponent implements OnInit {
     this.jobsService.getSubcategory(this.limit, this.offset).subscribe((res: any) => {
       if (res.success) {
         this.subcategories = res.data;
+        this.subcategories.forEach(subcategoriesDate=>{
+          subcategoriesDate.date = this.datePipe.transform(subcategoriesDate.date, 'yyyy-MM-dd');
+        });
         if (res.totalCount !== undefined && res.totalCount !== null) {
           this.totalPages = Math.ceil(res.totalCount / this.limit);
         } else {

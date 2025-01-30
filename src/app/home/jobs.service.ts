@@ -69,6 +69,7 @@ export class JobsService {
   clearCompanyLoginState(): void {
     localStorage.removeItem('companyLoggedIn');
   }
+  // admin side process
   // admin login 
   getCurrentAdmin(): Observable<any>{
     return this.http.get('http://localhost:3000/api/jobpostings/getCurrentAdmin', {withCredentials: true});
@@ -90,6 +91,9 @@ export class JobsService {
     localStorage.removeItem('adminLoggedIn');
     localStorage.removeItem('admin_authToken');
   }
+  getJobPosting(): Observable<any>{
+    return this.http.get('http://localhost:3000/api/jobpostings/getJobposting');
+  }
   // post a job 
   postJobData(jobData: FormData): Observable<any> {
     return this.http.post('http://localhost:3000/api/jobpostings/post-job', jobData);
@@ -98,6 +102,9 @@ export class JobsService {
   applyForJob(user_id:number, job_id: number): Observable<any> {
     const applicationDetails = {user_id, job_id};
     return this.http.post('http://localhost:3000/api/jobpostings/apply-job',applicationDetails);
+  }
+  checkApplicationStatus(user_id: number, job_id: number): Observable<any>{
+    return this.http.get(`http://localhost:3000/api/jobpostings/status/${user_id}/${job_id}`);
   }
   // get applied jobs to show in admin
   getAppliedJobs(): Observable<any>{

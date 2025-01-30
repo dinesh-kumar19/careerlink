@@ -49,12 +49,12 @@
             <th>Status</th>
           </tr>
         </thead>
-        <tbody *ngFor="let job of userJobs; let i = index">
+        <tbody *ngFor="let jobs of userJobs; let i = index">
           <tr>
             <td>{{ i + 1 }}</td>
-            <td>{{ job.jobtitle }}</td>
-            <td>{{ job.name }}</td>
-            <td>{{ job.application_date }}</td>
+            <td>{{ jobs.jobtitle }}</td>
+            <td>{{ jobs.companyname }}</td>
+            <td>{{ jobs.application_date }}</td>
             <!-- <td><button class="btn btn-dark">pending</button></td> -->
             <td>
               <button type="button" class="btn btn-success">Accepted</button

@@ -1,1 +1,47 @@
-<p>company-postjobs works!</p>
+<section>
+    <div *ngIf="companyJobApplications.length === 0" class="text-center mt-4">
+      <p>No job applications found.</p>
+    </div>
+    <div class="container mt-5 table-responsive">
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+      <h2 class="text-center">Company Post Jobs</h2>
+      <table class="table table-striped" *ngIf="companyJobApplications.length > 0">
+        <thead>
+          <tr>
+            <th>S.NO</th>
+            <th>Job Title</th>
+            <th>Company Name</th>
+        
+            <th>Company Website</th>
+            <th>Email ID</th>
+            <th>Vacancy Required</th>
+            <th>Application Date</th>
+            <th>Application Deadline</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let applications of companyJobApplications; let i = index">
+          <tr>
+            <td>{{ i + 1 }}</td>
+            <td><img [src]="'http://localhost:3000/uploads/jobLogo/' + applications.imageUrl" alt="Company_logo" width="35" height="35"> &nbsp; {{ applications.jobtitle }}</td>
+            <td>{{ applications.companyname }}</td>
+          
+            <td>{{applications.company_website}}</td>
+            <td></td>
+            
+            <td>{{applications.vacancy_required}}</td>
+            <td>{{ applications.application_date }}</td>
+            <td>{{applications.expiredate}}</td>
+
+            <td>
+              <button type="button" class="btn btn-success">Approve</button
+              >&nbsp;
+              <button type="button" class="btn btn-danger">Reject</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>

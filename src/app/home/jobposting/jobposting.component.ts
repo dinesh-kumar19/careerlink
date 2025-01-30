@@ -12,6 +12,7 @@ export class JobpostingComponent implements OnInit {
   postingId!: number;
   currentUser: any = {};
 
+
   constructor(private jobsService: JobsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -22,7 +23,12 @@ export class JobpostingComponent implements OnInit {
   fetchJobposting(): void {
     this.jobsService.getJobpostingBySubcategories(this.postingId, 10, 0).subscribe((response) => {
       if(response.success){
-        this.jobPosting = response.data;
+        // this.jobPosting = response.data;
+        this.jobPosting = response.data.map((job: any) => ({
+          ...job,
+          isApplied: false
+        }));
+        this.checkAppliedJobs();
       }
     });
   }
@@ -40,22 +46,34 @@ export class JobpostingComponent implements OnInit {
           console.error("Failed to fetch current user");
         }
       },
-      // (error) => {
-      //   console.error("Error fetching current user:", error);
-      // }
-    );
-    
+    );  
+  }
+  checkAppliedJobs():void {
+    if(!this.currentUser?.id) return;
+
+    this.jobPosting.forEach(job =>{
+      this.jobsService.checkApplicationStatus(this.currentUser.id, job.jobposting_id)
+        .subscribe(response => {
+          if (response.success && response.applied) {
+            job.isApplied = true;
+          }
+        });
+    });
   }
   applyForJob(jobId: number): void{
     if (!this.currentUser.id){
-      alert("user not logged in");
-      // this.router.navigate(['/home/login']);
+      alert("Please log in to apply for the job.");
+      this.router.navigate(['/home/login']);
       return;
     }
     this.jobsService.applyForJob(this.currentUser.id, jobId).subscribe(
       (response) => {
         if(response.success) {
           alert('Job application submitted successfully!');
+          const appliedJob = this.jobPosting.find(job => job.jobposting_id === jobId);
+          if (appliedJob){
+            appliedJob.isApplied = true;
+          }
         } else {
           alert('Failed to apply for job: ' + response.message);
         }

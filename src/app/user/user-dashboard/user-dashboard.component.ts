@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JobsService } from 'src/app/home/jobs.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -13,7 +14,7 @@ export class UserDashboardComponent implements OnInit {
   userJobs: any[]= [];
   errorMessage: string = '';
 
-  constructor(private jobsService: JobsService, private router: Router) { }
+  constructor(private jobsService: JobsService, private router: Router, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.jobsService.getCurrentuser().subscribe(
@@ -39,6 +40,9 @@ export class UserDashboardComponent implements OnInit {
         if(response.success){
           this.userJobs = response.data;
           // console.log(this.userJobs);
+          this.userJobs.forEach(applicationDate =>{
+            applicationDate.application_date = this.datePipe.transform(applicationDate.application_date, 'yyyy-MM-dd');
+          });
         }else{
           console.error("Failed to fetch individual user applications");
           this.errorMessage = "Failed to load user applied jobs";

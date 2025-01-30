@@ -9,7 +9,7 @@
     <div class="container-fluid mt-4">
       <div class="row">
         <div class="col-md-4">
-          <div class="filter-sidebar border p-3">
+          <div class="filter-sidebar border p-3" style="margin-top: 30px;">
             <h5>Filters</h5>
             <div class="form-group">
               <label for="locationFilter">Location</label>
@@ -50,7 +50,7 @@
                 />
               </div>
               <div class="col-9 col-md-10 col-lg-11">
-                <h4 style="cursor: pointer; color: rgb(8, 73, 171);" (click)="viewJobposting(subcategory.jobsubcategory_id)">{{ subcategory.jobtitle}}</h4>
+                <p style="cursor: pointer; color: rgb(8, 73, 171);" class="fs-4" (click)="viewJobposting(subcategory.jobsubcategory_id)">{{ subcategory.jobtitle}}</p>
                 <div class="d-flex flex-wrap my-3 text-dark-emphasis">
                   <p class="mx-3">
                     <i class="fa-solid fa-briefcase mx-2"></i
@@ -80,7 +80,7 @@
               </div>
             </div>
           </div>
-          <div *ngIf="!subcategories.length" class="text-center">
+          <div *ngIf="!subcategories.length" class="text-center" style="margin-top: 30px;">
             <p>No subcategories found for this category.</p>
           </div>
         </div>

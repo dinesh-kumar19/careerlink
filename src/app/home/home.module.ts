@@ -13,6 +13,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FiltersubcategoryComponent } from './filtersubcategory/filtersubcategory.component';
 import { JobpostingComponent } from './jobposting/jobposting.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -38,10 +39,10 @@ import { JobpostingComponent } from './jobposting/jobposting.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
-    
-    
   ],
-  providers: [JobsService]
+  providers: [
+    JobsService,
+    DatePipe
+   ]
 })
 export class HomeModule { }
